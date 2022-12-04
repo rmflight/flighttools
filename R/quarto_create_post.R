@@ -18,7 +18,7 @@ quarto_create_poste = function(
     file = "index.qmd",
     subtitle = "",
     date = Sys.Date(), 
-    draft = FALSE, 
+    draft = FALSE,
     title_limit = 40,
     open_file = TRUE
 )
@@ -65,6 +65,13 @@ quarto_create_poste = function(
     glue::glue("date: {date}")
   )
   
+  new_post_core = c(
+    new_post_core,
+    "editor_options: 
+       chunk_output_type: console",
+    "bibliography: refs.bib"
+  )
+  
   # add draft if draft
   if(draft){
     new_post_text = c(
@@ -88,6 +95,11 @@ quarto_create_poste = function(
   # create file and alert
   fs::file_create(new_post_file)
   cli::cli_alert_success("File created at {.file {new_post_file}}")
+  
+  # create refs and alert
+  new_ref_file = glue::glue("{slug}/refs.bib")
+  fs::file_create(new_ref_file)
+  cli::cli_alert_success("File created at {.file {new_ref_file}}")
   
   # print new post information
   cat(new_post_text)
