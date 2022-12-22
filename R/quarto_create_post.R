@@ -67,6 +67,7 @@ quarto_create_poste = function(
   
   new_post_core = c(
     new_post_core,
+    "categories: []",
     "editor_options: 
        chunk_output_type: console",
     "bibliography: refs.bib"
