@@ -68,8 +68,8 @@ quarto_create_poste = function(
   new_post_core = c(
     new_post_core,
     "categories: []",
-    "editor_options: 
-       chunk_output_type: console",
+    "editor_options:",
+    "  chunk_output_type: console",
     "bibliography: refs.bib"
   )
   
@@ -86,6 +86,8 @@ quarto_create_poste = function(
       "---\n"
     )
   }
+  
+# add email link at the bottom
   
   # finalize new post text
   new_post_text = paste0(
