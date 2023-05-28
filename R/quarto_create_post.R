@@ -7,6 +7,7 @@
 #' @param title the title of the post
 #' @param file what file should be output (default is index.qmd)
 #' @param subtitle what the subtitle should be
+#' @param date the date of the post
 #' @param draft is this a draft post?
 #' @param title_limit maximum number of characters in the title
 #' @param open_file should the file be opened by RStudio?
@@ -142,6 +143,6 @@ quarto_get_categories = function(post_directory = "posts")
   rle_categories = rle(all_categories)
   category_df = tibble::tibble(categories = rle_categories$values,
                                number_of_posts = rle_categories$lengths) |>
-    dplyr::arrange(dplyr::desc(number_of_posts))
+    dplyr::arrange(dplyr::desc(rlang::.data$number_of_posts))
   category_df
 }

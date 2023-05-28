@@ -21,6 +21,8 @@ quarto_create_post(
 
 \item{subtitle}{what the subtitle should be}
 
+\item{date}{the date of the post}
+
 \item{draft}{is this a draft post?}
 
 \item{title_limit}{maximum number of characters in the title}
