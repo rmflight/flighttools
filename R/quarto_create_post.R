@@ -13,7 +13,7 @@
 #' 
 #' @export
 #' @return NULL
-quarto_create_poste = function(
+quarto_create_post = function(
     title, 
     file = "index.qmd",
     subtitle = "",
@@ -116,4 +116,32 @@ quarto_create_poste = function(
     rstudioapi::documentOpen(new_post_file, line = length(new_post_text))
   }
   
+}
+
+#' get categories from posts
+#' 
+#' Goes through the directory of quarto blog posts, and parses the yaml frontmatter
+#' for the `categories` field, counts how many of each category there are and arranges
+#' them in decreasing order as a {tibble}.
+#' 
+#' @param post_directory the directory that holds all of the posts
+#' 
+#' @export
+#' @return tibble
+quarto_get_categories = function(post_directory = "posts")
+{
+  # post_directory = "posts"
+  all_posts = fs::path(dir(post_directory, full.names = TRUE), "index.qmd")
+  
+  get_frontmatter = purrr::safely(function(in_file){
+    rmarkdown::yaml_front_matter(in_file)
+  })
+  all_frontmatter = purrr::map(all_posts, get_frontmatter) |>
+    purrr::map(.x = _, \(.y){.y$result})
+  all_categories = purrr::map(all_frontmatter, \(.x){.x$categories}) |> unlist() |> sort()
+  rle_categories = rle(all_categories)
+  category_df = tibble::tibble(categories = rle_categories$values,
+                               number_of_posts = rle_categories$lengths) |>
+    dplyr::arrange(dplyr::desc(number_of_posts))
+  category_df
 }
