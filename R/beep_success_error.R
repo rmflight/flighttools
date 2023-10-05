@@ -10,6 +10,9 @@
 #' @return whatever should have been returned
 beep_success_error = function(expr, success = 4, error = 2)
 {
+  if (!require("beepr")) {
+    stop("beepr is required to be setup.\nSee https://github.com/jonocarroll/ntfy")
+  }
   tmp = try(expr)
   if (inherits(tmp, "try-error")) {
     beepr::beep(sound = error)
