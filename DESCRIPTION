@@ -23,5 +23,6 @@ Imports:
     rmarkdown,
     rlang
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    targets
 Config/testthat/edition: 3
