@@ -14,7 +14,7 @@
 #' 
 #' @export
 #' @return NULL
-rename_outputs = function(file_names = NULL,
+ft_rename_outputs = function(file_names = NULL,
                           prefix = "",
                           suffix = Sys.Date(),
                           overwrite = FALSE)

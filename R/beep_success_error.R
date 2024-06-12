@@ -8,7 +8,7 @@
 #'
 #' @export
 #' @return whatever should have been returned
-beep_success_error = function(expr, success = 4, error = 2)
+ft_beep_success_error = function(expr, success = 4, error = 2)
 {
   if (!require("beepr")) {
     stop("beepr is required to be setup.\nSee https://github.com/jonocarroll/ntfy")
@@ -32,7 +32,7 @@ beep_success_error = function(expr, success = 4, error = 2)
 #'
 #' @export
 #' @return whatever should have been returned
-ntfy_success_error = function(expr, success = "It Worked!", error = "Better Check on Me.")
+ft_ntfy_success_error = function(expr, success = "It Worked!", error = "Better Check on Me.")
 {
   if (!require("ntfy")) {
     stop("ntfy is required to be setup.\nSee https://github.com/jonocarroll/ntfy")

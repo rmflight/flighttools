@@ -14,7 +14,7 @@
 #' 
 #' @export
 #' @return NULL
-quarto_create_post = function(
+ft_quarto_create_post = function(
     title, 
     file = "index.qmd",
     subtitle = "",
@@ -129,7 +129,7 @@ quarto_create_post = function(
 #' 
 #' @export
 #' @return tibble
-quarto_get_categories = function(post_directory = "posts")
+ft_quarto_get_categories = function(post_directory = "posts")
 {
   # post_directory = "posts"
   all_posts = fs::path(dir(post_directory, full.names = TRUE), "index.qmd")

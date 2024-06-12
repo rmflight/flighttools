@@ -4,15 +4,15 @@
 #' 
 #' @export
 #' @return string
-my_knitr_opts = function()
+ft_knitr_opts = function()
 {
-  cat("knitr::opts_chunk$set(echo = FALSE,
+  cat('knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE,
                       warning = FALSE,
                       fig.width = 10,
                       fig.height = 8,
-                      dev = c('ragg_png', 'svg'),
-                      dpi = 600", sep = "\n")
+                      dev = c("ragg_png", "svg"),
+                      dpi = 600)', sep = "\n")
 }
 
 #' rmd / qmd title block
@@ -21,7 +21,7 @@ my_knitr_opts = function()
 #' 
 #' @export
 #' @return string
-my_title_block = function()
+ft_title_block = function()
 {
   cat('
 title: "A Good Title"
@@ -45,7 +45,7 @@ bibliography: bibliography_file.json', sep = "\n")
 #' 
 #' @export
 #' @return string
-my_remove_figures = function()
+ft_remove_figures = function()
 {
   cat("if (doc_type %in% 'docx') {
   unlink(here::here('path', 'to', 'documentname_files'), recursive = TRUE)
