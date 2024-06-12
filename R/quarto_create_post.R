@@ -142,7 +142,9 @@ quarto_get_categories = function(post_directory = "posts")
   all_categories = purrr::map(all_frontmatter, \(.x){.x$categories}) |> unlist() |> sort()
   rle_categories = rle(all_categories)
   category_df = tibble::tibble(categories = rle_categories$values,
-                               number_of_posts = rle_categories$lengths) |>
-    dplyr::arrange(dplyr::desc(rlang::.data$number_of_posts))
+                               number_of_posts = rle_categories$lengths)
+  sort_df = order(category_df$number_of_posts, decreasing = TRUE)
+  category_df = category_df[sort_df, ]
+  
   category_df
 }

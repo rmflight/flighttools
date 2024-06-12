@@ -1,6 +1,6 @@
 Package: flighttools
 Title: Functions That Robert M Flight Finds Useful
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     person("Robert", "Flight", , "rflight79@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8141-7788"))
@@ -8,7 +8,7 @@ Description: Custom functions that RM Flight finds useful.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Imports: 
     cli,
     fs,

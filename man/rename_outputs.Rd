@@ -5,7 +5,7 @@
 \title{rename outputs}
 \usage{
 rename_outputs(
-  file_names = "",
+  file_names = NULL,
   prefix = "",
   suffix = Sys.Date(),
   overwrite = FALSE
@@ -24,4 +24,8 @@ rename_outputs(
 When running a targets workflow, I often have files that are generated automatically
 as part of the workflow. However, I often rename them to match the directory, and
 add the day to the filename. This enables that automatically.
+}
+\details{
+To rename actual targets, pass the output of \code{tar_read(target_name)}. Note that
+this function will not copy and rename \code{qmd} and \code{rmd} source files.
 }
