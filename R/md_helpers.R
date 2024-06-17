@@ -68,7 +68,7 @@ write_plot_list_includes = function(plot_list,
 {
   load_code = glue::glue(
     "```{{r}}
-    targets::tar_load({use_id})
+    plot_list = targets::tar_read({use_id})
     ```"
   )
   plot_code = purrr::imap(plot_list, \\(in_list, in_name){
