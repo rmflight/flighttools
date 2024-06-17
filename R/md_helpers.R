@@ -33,7 +33,7 @@ format:
     keep-md: true
   html:
     toc: true
-    self-contained: true
+    embed-resources: true
 bibliography: bibliography_file.json', sep = "\n")
 }
 
@@ -50,4 +50,52 @@ ft_remove_figures = function()
   cat("if (doc_type %in% 'docx') {
   unlink(here::here('path', 'to', 'documentname_files'), recursive = TRUE)
 }", sep = "\n")
+}
+
+#' plot list includes
+#' 
+#' Using `!expr glue::glue(...)` will break `quarto inspect`, which is used
+#' by `targets`
+#' 
+#' @export
+#' @return string
+ft_plot_includes = function()
+{
+  cat('
+write_plot_list_includes = function(plot_list,
+                                    out_file = "docs/_plot_list.qmd",
+                                    use_id = "plot_list")
+{
+  load_code = glue::glue(
+    "```{{r}}
+    targets::tar_load({use_id})
+    ```"
+  )
+  plot_code = purrr::imap(plot_list, \\(in_list, in_name){
+    id_name = gsub(" ", "-", tolower(in_name))
+    glue::glue("```{{r}}
+    #| label: fig-{id_name}
+    #| fig-cap: Displacement vs {in_name}.
+    #| echo: false
+    plot_list[[\"{in_name}\"]]
+    ```")
+  
+  }) |> purrr::list_c()
+  
+  all_code = c(load_code, plot_code)
+  
+  cat(all_code, file = out_file, sep = "\n\n", append = FALSE)
+  cli::cli_alert_info("Make sure to have 
+  
+  {.strong tar_load(include_name)} 
+  
+  in a code block, and 
+  
+  {.strong {{{{< include {out_file} >}}}} } 
+  
+  where you want the figures in the parent file.")
+  return(list(code = all_code, file = out_file))
+  
+}'
+  )
 }
