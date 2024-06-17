@@ -4,7 +4,7 @@
 #' 
 #' @export
 #' @return tibble
-show_targets_progress = function(names = NULL, ...)
+ft_show_targets_progress = function(names = NULL, ...)
 {
   if (!require("targets")) {
     stop("targets package must be installed!")

@@ -69,7 +69,7 @@ ft_rename_outputs = function(file_names = NULL,
 #' 
 #' @return path to file
 #' @export
-zip_directory = function(directory, zipfile, add_date = TRUE)
+ft_zip_directory = function(directory, zipfile, add_date = TRUE)
 {
   
   zipfile = fs::path_abs(zipfile)

@@ -20,6 +20,8 @@ ft_add_figure_numbers(
 \item{count_location}{should the count be a \code{prefix} or \code{suffix}?}
 
 \item{skip_numbers}{should any numbers be skipped due to inserting from a different location?}
+
+\item{regexp}{what regex should be used to grab files}
 }
 \description{
 Given that \code{rmd} and \code{qmd} chunks are \strong{normally} run sequentially, figures

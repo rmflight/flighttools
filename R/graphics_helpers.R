@@ -34,6 +34,7 @@ ft_rotate_axis_labels = function()
 #' @param start_count what number starts the counting
 #' @param count_location should the count be a `prefix` or `suffix`?
 #' @param skip_numbers should any numbers be skipped due to inserting from a different location?
+#' @param regexp what regex should be used to grab files
 #' 
 #' @export
 #' @return NULL
