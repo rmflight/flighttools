@@ -71,13 +71,13 @@ write_plot_list_includes = function(plot_list,
     plot_list = targets::tar_read({use_id})
     ```"
   )
-  plot_code = purrr::imap(plot_list, \\(in_list, in_name){
+  plot_code = purrr::map(names(plot_list), \\(in_name){
     id_name = gsub(" ", "-", tolower(in_name))
     glue::glue("```{{r}}
     #| label: fig-{id_name}
     #| fig-cap: Displacement vs {in_name}.
     #| echo: false
-    plot_list[[\"{in_name}\"]]
+    plot_list[[\\\"{in_name}\\\"]]
     ```")
   
   }) |> purrr::list_c()
@@ -93,7 +93,7 @@ write_plot_list_includes = function(plot_list,
   
   {.strong {{{{< include {out_file} >}}}} } 
   
-  where you want the figures in the parent file.")
+  where you want the figures in the parent file.\")
   return(list(code = all_code, file = out_file))
   
 }'
