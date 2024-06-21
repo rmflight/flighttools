@@ -2,6 +2,7 @@
 
 export(ft_add_figure_numbers)
 export(ft_beep_success_error)
+export(ft_complexheatmap_scale)
 export(ft_ggplot2_colors)
 export(ft_knitr_opts)
 export(ft_ntfy_success_error)

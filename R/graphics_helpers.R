@@ -73,3 +73,29 @@ ft_add_figure_numbers = function(figure_directory = ".",
   fs::file_move(file_data$path, file_data$new_path)
   file_data[, c("path", "new_path")]
 }
+
+#' generate ComplexHeatmap color scale
+#' 
+#' The code for creating a function that maps values to colors for `ComplexHeatmap`
+#' heatmaps is not easy for me to remember. Here it is.
+#' 
+#' @details
+#' My favorite colors to use include:
+#'   
+#' * `viridis::viridis`
+#' * `scico::scico(n, palette = "vik")`
+#' 
+#' You can also use `scico::scico_palette_show()` to see other colorblind safe palettes.
+#' 
+#' 
+#' @export
+#' @return string
+ft_complexheatmap_scale = function()
+{
+  cat('n_value = 20
+circlize::colorRamp2(seq(low, high, length.out = n_value), viridis::viridis(n_value))
+
+or
+
+circlize::colorRamp2(seq(low, high, length.out = n_value), scico::scico(n_value, palette = "vik"))')
+}
