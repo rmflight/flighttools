@@ -84,14 +84,15 @@ write_plot_list_includes = function(plot_list,
   
   all_code = c(load_code, plot_code)
   
-  cat(all_code, file = out_file, sep = "\n\n", append = FALSE)
+  cat(all_code, file = out_file, sep = "\\n\\n", append = FALSE)
+  out_file_nofolder = basename(out_file)
   cli::cli_alert_info("Make sure to have 
   
   {.strong tar_load(include_name)} 
   
   in a code block, and 
   
-  {.strong {{{{< include {out_file} >}}}} } 
+  {.strong {{{{< include {out_file_nofolder} >}}}} } 
   
   where you want the figures in the parent file.\")
   return(list(code = all_code, file = out_file))
