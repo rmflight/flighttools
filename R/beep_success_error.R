@@ -88,5 +88,5 @@ ft_notify_success_error = function(expr, success = "All done!",
     
   args = c("-i", image, title, notify_message)
   run(ns, args)
-  invisible(tmp)
+  return(tmp)
 }
