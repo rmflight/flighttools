@@ -1,0 +1,27 @@
+---
+title: "A Good Title"
+author: "Robert M Flight"
+date: last-modified
+date-format: YYYY-MM-DD HH:mm
+format: 
+  docx:
+    keep-md: true
+---
+
+We have 3 figures, @fig-number-1, @fig-number-2 and @fig-number-3.
+
+```{r}
+#| label: fig-number-1
+data(mtcars)
+plot(mpg ~ wt, data = mtcars)
+```
+
+```{r}
+#| label: fig-number-2
+plot(mpg ~ disp, data = mtcars)
+```
+
+```{r}
+#| label: fig-number-3
+plot(mpg ~ cyl, data = mtcars)
+```

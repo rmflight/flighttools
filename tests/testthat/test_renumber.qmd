@@ -1,0 +1,38 @@
+---
+title: "A Good Title"
+author: "Robert M Flight"
+date: last-modified
+date-format: YYYY-MM-DD HH:mm
+format: 
+  docx:
+    keep-md: true
+---
+
+```{r}
+#| label: setup
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE,
+                      fig.width = 10,
+                      fig.height = 8,
+                      dev = c('png', 'svg'),
+                      dpi = 600)
+```
+
+We have 3 figures, @fig-number-1, @fig-number-2 and @fig-number-3.
+
+```{r}
+#| label: fig-number-1
+data(mtcars)
+plot(mpg ~ wt, data = mtcars)
+```
+
+```{r}
+#| label: fig-number-2
+plot(mpg ~ disp, data = mtcars)
+```
+
+```{r}
+#| label: fig-number-3
+plot(mpg ~ cyl, data = mtcars)
+```

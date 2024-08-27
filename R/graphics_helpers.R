@@ -99,3 +99,15 @@ or
 
 circlize::colorRamp2(seq(low, high, length.out = n_value), scico::scico(n_value, palette = "vik"))')
 }
+
+#' add data ellipse
+#' 
+#' Adds an ellipse showing the extent of the data to a plot. Most useful for PCA
+#' type stuff to show whether the samples separate or not.
+#' 
+#' @export
+#' @return a string
+ft_add_ellipse = function()
+{
+  cat('geom_polygon(stat = "ellipse", aes(fill = aes_fill, color = aes_color))')
+}
