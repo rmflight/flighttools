@@ -137,12 +137,20 @@ ft_discretize_colorscale = function(color_scale = NULL,
   # color_scale = scico::scico(100, palette = "vanimo", direction = -1)
   # discrete_locs = c(20, 80)
   if (is.null(color_scale)) {
+    cli::cli_abort(
+      message = c('{.arg color_scale} must be specified!',
+                  'x' = 'Currently {.code color_scale = NULL}.',
+                  'i' = 'See ?scico::scico or ?viridis::turbo to create a vector of colors.')
+    )  
     stop("Please supply a list of colors or a function to generate them!")
   }
   
   n_color = length(color_scale)
   if (any(discrete_locs > n_color)) {
-    stop("The length of the color scale must be longer than the discrete_locs!")
+    cli::cli_abort(
+      message = c('Values in {.arg discrete_locs} must be less than the length of {.arg color_scale}!',
+                  'x' = 'Length of {.arg color_scale} is {n_color}, and {.code discrete_locs} is {discrete_locs}')
+    )
   }
   
   out_colors = color_scale[c(discrete_locs)]
