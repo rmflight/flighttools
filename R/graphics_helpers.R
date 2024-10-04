@@ -111,3 +111,52 @@ ft_add_ellipse = function()
 {
   cat('geom_polygon(stat = "ellipse", aes(fill = aes_fill, color = aes_color))')
 }
+
+#' discretize a continuous colorscale
+#' 
+#' When one is using a continuous colorscale to visualize data (say log-fold-changes or correlations),
+#' it may be useful to create discrete colors from a usually continuous color scale.
+#' 
+#' @param color_scale the color scale to take colors from
+#' @param discrete_n how many colors to take
+#' @param discrete_locs where to take them from
+#' @param show_colors create a plot showing the continuous and discrete colors
+#' 
+#' @examples
+#' if require("scico") {
+#'   ft_discretize_colorscale(scico::scico(100, palette = "vanimo", direction = -1),
+#'                            discrete_locs = c(20, 80))
+#' }
+#' 
+#' @export
+#' @return vector of colors
+ft_discretize_colorscale = function(color_scale = NULL,
+                                    discrete_locs = c(25, 75),
+                                    show_colors = TRUE)
+{
+  # color_scale = scico::scico(100, palette = "vanimo", direction = -1)
+  # discrete_locs = c(20, 80)
+  if (is.null(color_scale)) {
+    stop("Please supply a list of colors or a function to generate them!")
+  }
+  
+  n_color = length(color_scale)
+  if (any(discrete_locs > n_color)) {
+    stop("The length of the color scale must be longer than the discrete_locs!")
+  }
+  
+  out_colors = color_scale[c(discrete_locs)]
+  
+  if (show_colors) {
+    select_matrix = matrix(seq_len(n_color), ncol = 1)
+    select_cols = rep("#FFFFFF", n_color)
+    select_cols[discrete_locs] = "#000000"
+    dims = grDevices::n2mfrow(3)
+    oldpar = par(mfrow = dims, mai = par("mai")/5)
+    on.exit(par(oldpar))
+    image(matrix(seq_len(n_color), ncol = 1), col = color_scale, main = "color_scale", axes = FALSE)
+    image(select_matrix, col = select_cols, main = "selections", axes = FALSE)
+    image(matrix(seq_len(length(out_colors)), ncol = 1), col = out_colors, main = "discretized", axes = FALSE)
+  }
+  return(out_colors)
+}
