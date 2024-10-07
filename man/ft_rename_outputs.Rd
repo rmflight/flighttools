@@ -29,3 +29,9 @@ add the day to the filename. This enables that automatically.
 To rename actual targets, pass the output of \code{tar_read(target_name)}. Note that
 this function will not copy and rename \code{qmd} and \code{rmd} source files.
 }
+\seealso{
+Other {File Manipulation}: 
+\code{\link{ft_add_figure_numbers}()},
+\code{\link{ft_zip_directory}()}
+}
+\concept{{File Manipulation}}

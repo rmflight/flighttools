@@ -22,3 +22,20 @@ My favorite colors to use include:
 
 You can also use \code{scico::scico_palette_show()} to see other colorblind safe palettes.
 }
+\seealso{
+Other {Graphics}: 
+\code{\link{ft_add_figure_numbers}()},
+\code{\link{ft_discretize_colorscale}()},
+\code{\link{ft_ggplot2_colors}()},
+\code{\link{ft_rotate_axis_labels}()}
+
+Other {Code Generators}: 
+\code{\link{ft_data_dictionary}()},
+\code{\link{ft_ggplot2_colors}()},
+\code{\link{ft_knitr_opts}()},
+\code{\link{ft_plot_includes}()},
+\code{\link{ft_remove_figures}()},
+\code{\link{ft_rotate_axis_labels}()}
+}
+\concept{{Code Generators}}
+\concept{{Graphics}}

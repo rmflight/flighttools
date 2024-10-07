@@ -12,3 +12,18 @@ string
 \description{
 My preferred knitr chunk options.
 }
+\seealso{
+Other {Markdown}: 
+\code{\link{ft_plot_includes}()},
+\code{\link{ft_remove_figures}()}
+
+Other {Code Generators}: 
+\code{\link{ft_complexheatmap_scale}()},
+\code{\link{ft_data_dictionary}()},
+\code{\link{ft_ggplot2_colors}()},
+\code{\link{ft_plot_includes}()},
+\code{\link{ft_remove_figures}()},
+\code{\link{ft_rotate_axis_labels}()}
+}
+\concept{{Code Generators}}
+\concept{{Markdown}}

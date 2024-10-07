@@ -2,6 +2,8 @@
 #' 
 #' My preferred knitr chunk options.
 #' 
+#' @family {Markdown} 
+#' @family {Code Generators}
 #' @export
 #' @return string
 ft_knitr_opts = function()
@@ -19,6 +21,7 @@ ft_knitr_opts = function()
 #' 
 #' My preferred title block
 #' 
+#' @family {Markdown} {Code Generators}
 #' @export
 #' @return string
 ft_title_block = function()
@@ -43,6 +46,8 @@ bibliography: bibliography_file.json', sep = "\n")
 #' from a previous rendering of the document. So this creates the code we would
 #' insert into a setup chunk to go and delete the previously created figures.
 #' 
+#' @family {Markdown} 
+#' @family {Code Generators}
 #' @export
 #' @return string
 ft_remove_figures = function()
@@ -57,6 +62,8 @@ ft_remove_figures = function()
 #' Using `!expr glue::glue(...)` will break `quarto inspect`, which is used
 #' by `targets`
 #' 
+#' @family {Markdown} 
+#' @family {Code Generators}
 #' @export
 #' @return string
 ft_plot_includes = function()

@@ -12,6 +12,7 @@
 #' @param suffix what is the suffix to add (default is today's date)
 #' @param overwrite should we overwrite already existing files?
 #' 
+#' @family {File Manipulation}
 #' @export
 #' @return NULL
 ft_rename_outputs = function(file_names = NULL,
@@ -67,6 +68,7 @@ ft_rename_outputs = function(file_names = NULL,
 #' @param zipfile where to save the zip file
 #' @param add_date should the date be added?
 #' 
+#' @family {File Manipulation}
 #' @return path to file
 #' @export
 ft_zip_directory = function(directory, zipfile, add_date = TRUE)

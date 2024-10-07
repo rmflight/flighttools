@@ -13,3 +13,4 @@ a string
 Adds an ellipse showing the extent of the data to a plot. Most useful for PCA
 type stuff to show whether the samples separate or not.
 }
+\concept{{Graphics} {Code Generators}}

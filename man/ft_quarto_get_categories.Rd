@@ -17,3 +17,8 @@ Goes through the directory of quarto blog posts, and parses the yaml frontmatter
 for the \code{categories} field, counts how many of each category there are and arranges
 them in decreasing order as a {tibble}.
 }
+\seealso{
+Other {Quarto}: 
+\code{\link{ft_quarto_create_post}()}
+}
+\concept{{Quarto}}

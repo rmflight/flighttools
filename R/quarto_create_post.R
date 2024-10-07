@@ -12,6 +12,7 @@
 #' @param title_limit maximum number of characters in the title
 #' @param open_file should the file be opened by RStudio?
 #' 
+#' @family {Quarto}
 #' @export
 #' @return NULL
 ft_quarto_create_post = function(
@@ -127,6 +128,7 @@ ft_quarto_create_post = function(
 #' 
 #' @param post_directory the directory that holds all of the posts
 #' 
+#' @family {Quarto}
 #' @export
 #' @return tibble
 ft_quarto_get_categories = function(post_directory = "posts")

@@ -34,3 +34,8 @@ Sets up the directory for a new blog post.
 Note this function was modified from the one originally supplied
 by \href{https://themockup.blog/posts/2022-11-08-use-r-to-generate-a-quarto-blogpost/}{Tom Mock}.
 }
+\seealso{
+Other {Quarto}: 
+\code{\link{ft_quarto_get_categories}()}
+}
+\concept{{Quarto}}

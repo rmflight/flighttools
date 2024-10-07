@@ -20,3 +20,9 @@ path to file
 Given a file folder, creates a zip file containing all the underlying files, starting
 at the directory level.
 }
+\seealso{
+Other {File Manipulation}: 
+\code{\link{ft_add_figure_numbers}()},
+\code{\link{ft_rename_outputs}()}
+}
+\concept{{File Manipulation}}

@@ -2,6 +2,8 @@
 #' 
 #' generates the code for getting some ggplot2 colors
 #' 
+#' @family {Graphics} 
+#' @family {Code Generators}
 #' @export
 #' @return string
 ft_ggplot2_colors = function()
@@ -13,6 +15,8 @@ ft_ggplot2_colors = function()
 #' 
 #' Gives me the code to rotate axis labels.
 #' 
+#' @family {Graphics} 
+#' @family {Code Generators}
 #' @export
 #' @return string
 ft_rotate_axis_labels = function()
@@ -36,6 +40,8 @@ ft_rotate_axis_labels = function()
 #' @param skip_numbers should any numbers be skipped due to inserting from a different location?
 #' @param regexp what regex should be used to grab files
 #' 
+#' @family {Graphics}
+#' @family {File Manipulation}
 #' @export
 #' @return NULL
 ft_add_figure_numbers = function(figure_directory = ".",
@@ -87,7 +93,8 @@ ft_add_figure_numbers = function(figure_directory = ".",
 #' 
 #' You can also use `scico::scico_palette_show()` to see other colorblind safe palettes.
 #' 
-#' 
+#' @family {Graphics} 
+#' @family {Code Generators}
 #' @export
 #' @return string
 ft_complexheatmap_scale = function()
@@ -105,6 +112,7 @@ circlize::colorRamp2(seq(low, high, length.out = n_value), scico::scico(n_value,
 #' Adds an ellipse showing the extent of the data to a plot. Most useful for PCA
 #' type stuff to show whether the samples separate or not.
 #' 
+#' @family {Graphics} {Code Generators}
 #' @export
 #' @return a string
 ft_add_ellipse = function()
@@ -123,11 +131,12 @@ ft_add_ellipse = function()
 #' @param show_colors create a plot showing the continuous and discrete colors
 #' 
 #' @examples
-#' if require("scico") {
+#' if (require("scico")) {
 #'   ft_discretize_colorscale(scico::scico(100, palette = "vanimo", direction = -1),
 #'                            discrete_locs = c(20, 80))
 #' }
 #' 
+#' @family {Graphics}
 #' @export
 #' @return vector of colors
 ft_discretize_colorscale = function(color_scale = NULL,

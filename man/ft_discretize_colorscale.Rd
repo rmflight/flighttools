@@ -27,9 +27,17 @@ When one is using a continuous colorscale to visualize data (say log-fold-change
 it may be useful to create discrete colors from a usually continuous color scale.
 }
 \examples{
-if require("scico") {
+if (require("scico")) {
   ft_discretize_colorscale(scico::scico(100, palette = "vanimo", direction = -1),
                            discrete_locs = c(20, 80))
 }
 
 }
+\seealso{
+Other {Graphics}: 
+\code{\link{ft_add_figure_numbers}()},
+\code{\link{ft_complexheatmap_scale}()},
+\code{\link{ft_ggplot2_colors}()},
+\code{\link{ft_rotate_axis_labels}()}
+}
+\concept{{Graphics}}

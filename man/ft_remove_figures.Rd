@@ -14,3 +14,18 @@ It happens very often, that we don't want to keep old figures laying around
 from a previous rendering of the document. So this creates the code we would
 insert into a setup chunk to go and delete the previously created figures.
 }
+\seealso{
+Other {Markdown}: 
+\code{\link{ft_knitr_opts}()},
+\code{\link{ft_plot_includes}()}
+
+Other {Code Generators}: 
+\code{\link{ft_complexheatmap_scale}()},
+\code{\link{ft_data_dictionary}()},
+\code{\link{ft_ggplot2_colors}()},
+\code{\link{ft_knitr_opts}()},
+\code{\link{ft_plot_includes}()},
+\code{\link{ft_rotate_axis_labels}()}
+}
+\concept{{Code Generators}}
+\concept{{Markdown}}
