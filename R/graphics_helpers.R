@@ -4,6 +4,7 @@
 #' 
 #' @family {Graphics} 
 #' @family {Code Generators}
+#' @family {Colors}
 #' @export
 #' @return string
 ft_ggplot2_colors = function()
@@ -95,6 +96,7 @@ ft_add_figure_numbers = function(figure_directory = ".",
 #' 
 #' @family {Graphics} 
 #' @family {Code Generators}
+#' @family {Colors}
 #' @export
 #' @return string
 ft_complexheatmap_scale = function()
@@ -137,6 +139,7 @@ ft_add_ellipse = function()
 #' }
 #' 
 #' @family {Graphics}
+#' @family {Colors}
 #' @export
 #' @return vector of colors
 ft_discretize_colorscale = function(color_scale = NULL,

@@ -35,7 +35,13 @@ Other {Code Generators}:
 \code{\link{ft_knitr_opts}()},
 \code{\link{ft_plot_includes}()},
 \code{\link{ft_remove_figures}()},
-\code{\link{ft_rotate_axis_labels}()}
+\code{\link{ft_rotate_axis_labels}()},
+\code{\link{ft_title_block}()}
+
+Other {Colors}: 
+\code{\link{ft_discretize_colorscale}()},
+\code{\link{ft_ggplot2_colors}()}
 }
 \concept{{Code Generators}}
+\concept{{Colors}}
 \concept{{Graphics}}

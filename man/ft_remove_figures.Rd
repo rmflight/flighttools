@@ -17,7 +17,8 @@ insert into a setup chunk to go and delete the previously created figures.
 \seealso{
 Other {Markdown}: 
 \code{\link{ft_knitr_opts}()},
-\code{\link{ft_plot_includes}()}
+\code{\link{ft_plot_includes}()},
+\code{\link{ft_title_block}()}
 
 Other {Code Generators}: 
 \code{\link{ft_complexheatmap_scale}()},
@@ -25,7 +26,8 @@ Other {Code Generators}:
 \code{\link{ft_ggplot2_colors}()},
 \code{\link{ft_knitr_opts}()},
 \code{\link{ft_plot_includes}()},
-\code{\link{ft_rotate_axis_labels}()}
+\code{\link{ft_rotate_axis_labels}()},
+\code{\link{ft_title_block}()}
 }
 \concept{{Code Generators}}
 \concept{{Markdown}}

@@ -21,7 +21,8 @@ ft_knitr_opts = function()
 #' 
 #' My preferred title block
 #' 
-#' @family {Markdown} {Code Generators}
+#' @family {Markdown} 
+#' @family {Code Generators}
 #' @export
 #' @return string
 ft_title_block = function()
