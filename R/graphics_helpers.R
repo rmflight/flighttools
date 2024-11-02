@@ -180,3 +180,33 @@ ft_discretize_colorscale = function(color_scale = NULL,
   }
   return(out_colors)
 }
+
+#' save plot to temp
+#' 
+#' Take a plot object (default is `ggplot2::last_plot()`), and write it to a file
+#' that can be easily found and opened in a VSCode editor pane for a zoomed view of the plot.
+#' 
+#' @param in_plot the plot to save
+#' @param filename the file to save it to. Default is underscore to make it easily findable
+#' @param width width of the saved plot
+#' @param height height of the saved plot
+#' @param units units to use
+#' @param res the resolution
+#' @param ... other parameters to `ragg::agg_png()`
+#' 
+#' @seealso [ragg::agg_png()]
+#' 
+#' @return filename
+#' @export
+ft_plot_temp_file = function(in_plot = ggplot2::last_plot(), filename = "_deleteme_plot.png", 
+                                 width = 10, height = 8, 
+                                 units = "in", res = 300, ...)
+{
+  if (!requireNamespace("ragg", quietly = TRUE)) {
+    stop("ragg package must be installed.")
+  }
+  ragg::agg_png(filename = filename, width = width, height = height, units = units, res = res, ...)
+  print(in_plot)
+  dev.off()
+  return(filename)
+}

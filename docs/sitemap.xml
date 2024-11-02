@@ -12,6 +12,7 @@
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_ggplot2_colors.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_knitr_opts.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_plot_includes.html</loc></url>
+<url><loc>https://rmflight.github.io/flighttools/reference/ft_plot_temp_file.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_quarto_create_post.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_quarto_get_categories.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_remove_figures.html</loc></url>
@@ -22,5 +23,6 @@
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_zip_directory.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/index.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/notifier.html</loc></url>
+<url><loc>https://rmflight.github.io/flighttools/reference/put_plot_in_temp_file.html</loc></url>
 </urlset>
 

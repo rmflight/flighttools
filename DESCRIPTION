@@ -1,6 +1,6 @@
 Package: flighttools
 Title: Functions That Robert M Flight Finds Useful
-Version: 0.1.19
+Version: 0.1.20
 Authors@R: 
     person("Robert", "Flight", , "rflight79@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8141-7788"))
@@ -26,7 +26,8 @@ Suggests:
     beepr,
     testthat (>= 3.0.0),
     targets,
-    scico
+    scico,
+    ragg
 Config/testthat/edition: 3
 URL: https://github.com/rmflight/flighttools, https://rmflight.github.io/flighttools
 BugReports: https://github.com/rmflight/flighttools/issues
