@@ -53,7 +53,8 @@ bibliography: bibliography_file.json', sep = "\n")
 #' @return string
 ft_remove_figures = function()
 {
-  cat("if (doc_type %in% 'docx') {
+  cat("doc_type = knitr::opts_knit$get('rmarkdown.pandoc.to')
+if (doc_type %in% 'docx') {
   unlink(here::here('path', 'to', 'documentname_files'), recursive = TRUE)
 }", sep = "\n")
 }
