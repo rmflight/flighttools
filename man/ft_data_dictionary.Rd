@@ -16,10 +16,10 @@ I always forget the syntax I use for creating a data dictionary
 Other {Code Generators}: 
 \code{\link{ft_complexheatmap_scale}()},
 \code{\link{ft_ggplot2_colors}()},
+\code{\link{ft_ggplot2_rotate_axis_labels}()},
 \code{\link{ft_knitr_opts}()},
 \code{\link{ft_plot_includes}()},
 \code{\link{ft_remove_figures}()},
-\code{\link{ft_rotate_axis_labels}()},
 \code{\link{ft_title_block}()}
 }
 \concept{{Code Generators}}

@@ -38,7 +38,7 @@ Other {Graphics}:
 \code{\link{ft_add_figure_numbers}()},
 \code{\link{ft_complexheatmap_scale}()},
 \code{\link{ft_ggplot2_colors}()},
-\code{\link{ft_rotate_axis_labels}()}
+\code{\link{ft_ggplot2_rotate_axis_labels}()}
 
 Other {Colors}: 
 \code{\link{ft_complexheatmap_scale}()},

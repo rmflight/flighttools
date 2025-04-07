@@ -20,7 +20,7 @@ ft_ggplot2_colors = function()
 #' @family {Code Generators}
 #' @export
 #' @return string
-ft_rotate_axis_labels = function()
+ft_ggplot2_rotate_axis_labels = function()
 {
   cat('scale_x_discrete(guide = guide_axis(angle = 90))',
       'theme(axis.text.x=element_text(angle = 90)',
@@ -117,7 +117,7 @@ circlize::colorRamp2(seq(low, high, length.out = n_value), scico::scico(n_value,
 #' @family {Graphics} {Code Generators}
 #' @export
 #' @return a string
-ft_add_ellipse = function()
+ft_ggplot2_add_ellipse = function()
 {
   cat('geom_polygon(stat = "ellipse", aes(fill = aes_fill, color = aes_color))')
 }
@@ -209,4 +209,29 @@ ft_plot_temp_file = function(in_plot = ggplot2::last_plot(), filename = "_delete
   print(in_plot)
   dev.off()
   return(filename)
+}
+
+#' define my own colors
+#' 
+#' Reminds me of the syntax for passing my own colors to a ggplot2 graph
+#' 
+#' @family {Graphics} {Code Generators}
+#' @export
+#' @return a string
+ft_ggplot2_self_colors = function()
+{
+  cat('scale_color_manual(values = c("one" = "gray", "two" = "black"))')
+}
+
+#' have legend inside plot area
+#' 
+#' Provides the code necessary for putting a legend inside the plot area.
+#' At some point the code for that changed, and I always forget it.
+#' 
+#' @family {Graphics} {Code Generators}
+#' @export
+#' @return a string
+ft_ggplot2_legend_inside = function()
+{
+  cat('theme(legend.position = "inside", legend.position.inside = c(0.7, 0.7))')
 }
