@@ -14,7 +14,7 @@
 #' 
 #' @family {File Manipulation}
 #' @export
-#' @return NULL
+#' @return new file paths (invisibly) to allow piping to other functions
 ft_rename_outputs = function(file_names = NULL,
                           prefix = "",
                           suffix = Sys.Date(),
@@ -35,7 +35,7 @@ ft_rename_outputs = function(file_names = NULL,
   if (length(file_names) == 0) {
     cli::cli_abort("No {.var file_names} exist, aborting!")
   }
-  purrr::walk(file_names, function(in_file){
+  out_files = purrr::map_chr(file_names, function(in_file){
     if (fs::file_exists(in_file)) {
       dir_part = fs::path_dir(in_file)
       file_part = fs::path_file(in_file)
@@ -56,7 +56,7 @@ ft_rename_outputs = function(file_names = NULL,
     }
       
   })
-  return(invisible(NULL))
+  return(invisible(out_files))
 } 
 
 #' zip a directory

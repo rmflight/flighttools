@@ -20,6 +20,9 @@ ft_rename_outputs(
 
 \item{overwrite}{should we overwrite already existing files?}
 }
+\value{
+new file paths (invisibly) to allow piping to other functions
+}
 \description{
 When running a targets workflow, I often have files that are generated automatically
 as part of the workflow. However, I often rename them to match the directory, and
