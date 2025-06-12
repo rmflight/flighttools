@@ -47,10 +47,10 @@ expression returns an error or not, so they can give the correct feedback to the
 if (require(beepr)) {
   # usual syntax, works
   ft_beep_success_error(Sys.sleep(2))
-  
+
   # have an error (can't add a letter to a number)
   ft_beep_success_error(2 + "x")
-  
+
   # pipe syntax
   Sys.sleep(2) |> ft_beep_success_error()
 }

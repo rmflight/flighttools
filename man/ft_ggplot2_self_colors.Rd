@@ -12,9 +12,43 @@ a string
 \description{
 Reminds me of the syntax for passing my own colors to a ggplot2 graph
 }
-\seealso{
-Other {Graphics} {Code Generators}: 
-\code{\link{ft_ggplot2_add_ellipse}()},
-\code{\link{ft_ggplot2_legend_inside}()}
+\examples{
+ft_ggplot2_self_colors()
 }
-\concept{{Graphics} {Code Generators}}
+\seealso{
+Other {Graphics}: 
+\code{\link{ft_add_figure_numbers}()},
+\code{\link{ft_add_padding}()},
+\code{\link{ft_discretize_colorscale}()},
+\code{\link{ft_ggplot2_add_ellipse}()},
+\code{\link{ft_ggplot2_colors}()},
+\code{\link{ft_ggplot2_legend_inside}()},
+\code{\link{ft_ggplot2_rotate_axis_labels}()},
+\code{\link{ft_plot_temp_file}()},
+\code{\link{ft_upset_add_counts}()},
+\code{\link{ft_upset_comb_matrix}()}
+
+Other {Code Generators}: 
+\code{\link{ft_add_padding}()},
+\code{\link{ft_complexheatmap_scale}()},
+\code{\link{ft_data_dictionary}()},
+\code{\link{ft_ggplot2_add_ellipse}()},
+\code{\link{ft_ggplot2_colors}()},
+\code{\link{ft_ggplot2_legend_inside}()},
+\code{\link{ft_ggplot2_rotate_axis_labels}()},
+\code{\link{ft_knitr_opts}()},
+\code{\link{ft_plot_includes}()},
+\code{\link{ft_remove_figures}()},
+\code{\link{ft_title_block}()},
+\code{\link{ft_upset_add_counts}()},
+\code{\link{ft_upset_comb_matrix}()}
+
+Other {ggplot2}: 
+\code{\link{ft_ggplot2_add_ellipse}()},
+\code{\link{ft_ggplot2_colors}()},
+\code{\link{ft_ggplot2_legend_inside}()},
+\code{\link{ft_ggplot2_rotate_axis_labels}()}
+}
+\concept{{Code Generators}}
+\concept{{Graphics}}
+\concept{{ggplot2}}

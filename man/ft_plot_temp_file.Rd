@@ -38,4 +38,17 @@ that can be easily found and opened in a VSCode editor pane for a zoomed view of
 }
 \seealso{
 \code{\link[ragg:agg_png]{ragg::agg_png()}}
+
+Other {Graphics}: 
+\code{\link{ft_add_figure_numbers}()},
+\code{\link{ft_add_padding}()},
+\code{\link{ft_discretize_colorscale}()},
+\code{\link{ft_ggplot2_add_ellipse}()},
+\code{\link{ft_ggplot2_colors}()},
+\code{\link{ft_ggplot2_legend_inside}()},
+\code{\link{ft_ggplot2_rotate_axis_labels}()},
+\code{\link{ft_ggplot2_self_colors}()},
+\code{\link{ft_upset_add_counts}()},
+\code{\link{ft_upset_comb_matrix}()}
 }
+\concept{{Graphics}}

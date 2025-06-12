@@ -5,6 +5,9 @@
 #' @family {Graphics}
 #' @family {Code Generators}
 #' @family {Colors}
+#' @family {ggplot2}
+#' @examples
+#' ft_ggplot2_colors()
 #' @export
 #' @return string
 ft_ggplot2_colors = function() {
@@ -16,7 +19,10 @@ ft_ggplot2_colors = function() {
 #' Gives me the code to rotate axis labels.
 #'
 #' @family {Graphics}
+#' @family {ggplot2}
 #' @family {Code Generators}
+#' @examples
+#' ft_ggplot2_rotate_axis_labels()
 #' @export
 #' @return string
 ft_ggplot2_rotate_axis_labels = function() {
@@ -114,9 +120,11 @@ ft_add_figure_numbers = function(
 #'
 #' You can also use `scico::scico_palette_show()` to see other colorblind safe palettes.
 #'
-#' @family {Graphics}
+#' @family {Graphics} {ComplexHeatmap}
 #' @family {Code Generators}
 #' @family {Colors}
+#' @examples
+#' ft_complexheatmap_scale()
 #' @export
 #' @return string
 ft_complexheatmap_scale = function() {
@@ -135,7 +143,11 @@ circlize::colorRamp2(seq(low, high, length.out = n_value), scico::scico(n_value,
 #' Adds an ellipse showing the extent of the data to a plot. Most useful for PCA
 #' type stuff to show whether the samples separate or not.
 #'
-#' @family {Graphics} {Code Generators}
+#' @family {Graphics}
+#' @family {Code Generators}
+#' @family {ggplot2}
+#' @examples
+#' ft_ggplot2_add_ellipse()
 #' @export
 #' @return a string
 ft_ggplot2_add_ellipse = function() {
@@ -232,6 +244,7 @@ ft_discretize_colorscale = function(
 #' @seealso [ragg::agg_png()]
 #'
 #' @return filename
+#' @family {Graphics}
 #' @export
 ft_plot_temp_file = function(
   in_plot = ggplot2::last_plot(),
@@ -262,7 +275,11 @@ ft_plot_temp_file = function(
 #'
 #' Reminds me of the syntax for passing my own colors to a ggplot2 graph
 #'
-#' @family {Graphics} {Code Generators}
+#' @family {Graphics}
+#' @family {Code Generators}
+#' @family {ggplot2}
+#' @examples
+#' ft_ggplot2_self_colors()
 #' @export
 #' @return a string
 ft_ggplot2_self_colors = function() {
@@ -274,9 +291,75 @@ ft_ggplot2_self_colors = function() {
 #' Provides the code necessary for putting a legend inside the plot area.
 #' At some point the code for that changed, and I always forget it.
 #'
-#' @family {Graphics} {Code Generators}
+#' @family {Graphics}
+#' @family {Code Generators}
+#' @family {ggplot2}
+#' @examples
+#' ft_ggplot2_legend_inside()
 #' @export
 #' @return a string
 ft_ggplot2_legend_inside = function() {
   cat('theme(legend.position = "inside", legend.position.inside = c(0.7, 0.7))')
+}
+
+#' add more padding
+#'
+#' Provides the code for adding padding to a plot, which is sometimes necessary
+#' when generating UpSet plots via ComplexHeatmap::UpSet, as the labels will
+#' be too long and get cutoff.
+#'
+#' @family {Graphics}
+#' @family {Code Generators}
+#' @examples
+#'   ft_add_padding()
+#' @export
+#' @return a string
+ft_add_padding = function() {
+  cat('draw(plot, padding = unit(c(2, 8, 2, 2), "mm"))')
+}
+
+#' add counts to UpSet
+#'
+#' Provides the code for adding column and row counts to UpSet plot intersections
+#' and groups.
+#'
+#' @family {Graphics}
+#' @family {Code Generators}
+#' @family {UpSet}
+#' @examples
+#' ft_upset_add_counts()
+#' @export
+#' @return a string
+ft_upset_add_counts = function() {
+  cat(
+    'UpSet(combinations, top_annotation = upset_top_annotation(combinations, add_numbers = TRUE),
+  right_annotation = upset_right_annotation(mismatch_stable_comb, add_numbers = TRUE))'
+  )
+}
+
+#' manually create combinations
+#'
+#' Provides a code framework for creating a combination matrix with code instead of using lists.
+#' Needed because sometimes `ComplexHeatmap::make_comb_mat` will choke on list elements.
+#'
+#' @family {Graphics}
+#' @family {Code Generators}
+#' @family {UpSet}
+#' @examples
+#'   ft_upset_comb_matrix()
+#' @export
+#' @return a string
+ft_upset_comb_matrix = function() {
+  cat(
+    'make_combination_matrix = function(list_items) {
+  all_items = sort(unique(unlist(list_items)))
+  comb_mat = matrix(0, nrow = length(all_items), ncol = length(list_items))
+  colnames(comb_mat) = names(list_items)
+  
+  for (i_out in seq_along(list_items)) {
+    comb_mat[all_items %in% list_items[[i_out]], i_out] = 1
+  }
+  return(comb_mat)
+}'
+  )
 }

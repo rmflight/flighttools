@@ -6,6 +6,7 @@
 <url><loc>https://rmflight.github.io/flighttools/index.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_add_ellipse.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_add_figure_numbers.html</loc></url>
+<url><loc>https://rmflight.github.io/flighttools/reference/ft_add_padding.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_complexheatmap_scale.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_data_dictionary.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_discretize_colorscale.html</loc></url>
@@ -24,6 +25,8 @@
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_rotate_axis_labels.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_show_targets_progress.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_title_block.html</loc></url>
+<url><loc>https://rmflight.github.io/flighttools/reference/ft_upset_add_counts.html</loc></url>
+<url><loc>https://rmflight.github.io/flighttools/reference/ft_upset_comb_matrix.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_zip_directory.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/index.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/notifier.html</loc></url>
