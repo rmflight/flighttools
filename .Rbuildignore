@@ -1,3 +1,5 @@
 ^flighttools\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
+^[\.]?air\.toml$
+^\.vscode$
