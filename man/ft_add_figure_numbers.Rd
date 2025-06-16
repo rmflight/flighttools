@@ -43,6 +43,7 @@ Other {Graphics}:
 \code{\link{ft_upset_comb_matrix}()}
 
 Other {File Manipulation}: 
+\code{\link{ft_rename_code}()},
 \code{\link{ft_rename_outputs}()},
 \code{\link{ft_zip_directory}()}
 }

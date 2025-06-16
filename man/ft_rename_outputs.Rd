@@ -35,6 +35,7 @@ this function will not copy and rename \code{qmd} and \code{rmd} source files.
 \seealso{
 Other {File Manipulation}: 
 \code{\link{ft_add_figure_numbers}()},
+\code{\link{ft_rename_code}()},
 \code{\link{ft_zip_directory}()}
 }
 \concept{{File Manipulation}}

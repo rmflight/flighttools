@@ -41,6 +41,7 @@ Other {Code Generators}:
 \code{\link{ft_knitr_opts}()},
 \code{\link{ft_plot_includes}()},
 \code{\link{ft_remove_figures}()},
+\code{\link{ft_rename_code}()},
 \code{\link{ft_title_block}()},
 \code{\link{ft_upset_add_counts}()},
 \code{\link{ft_upset_comb_matrix}()}

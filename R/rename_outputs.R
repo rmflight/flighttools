@@ -91,3 +91,31 @@ ft_zip_directory = function(directory, zipfile, add_date = TRUE) {
     return(zipfile)
   }
 }
+
+#' rename code
+#'
+#' Provide the code I want when I rename stuff
+#'
+#' @family {Code Generators}
+#' @family {File Manipulation}
+#' @examples
+#' ft_rename_code()
+#' @return string
+#' @export
+ft_rename_code = function() {
+  cat(
+    'c(
+   "target_1",
+   "target_2"
+ ) |>
+   purrr::walk(.f = \\(x) {
+     flighttools::ft_rename_outputs(
+       tar_read_raw(x),
+       prefix = "prefix",
+       overwrite = TRUE
+     ) |>
+       fs::file_move("output_dir")
+   })
+'
+  )
+}

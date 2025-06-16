@@ -23,6 +23,7 @@ at the directory level.
 \seealso{
 Other {File Manipulation}: 
 \code{\link{ft_add_figure_numbers}()},
+\code{\link{ft_rename_code}()},
 \code{\link{ft_rename_outputs}()}
 }
 \concept{{File Manipulation}}
