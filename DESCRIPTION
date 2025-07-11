@@ -1,6 +1,6 @@
 Package: flighttools
 Title: Functions That Robert M Flight Finds Useful
-Version: 0.1.26
+Version: 0.1.27
 Authors@R: 
     person("Robert", "Flight", , "rflight79@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8141-7788"))
