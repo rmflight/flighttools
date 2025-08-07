@@ -51,12 +51,25 @@ ft_rename_outputs = function(
       if ((nchar(suffix) > 0) || (!is.null(suffix))) {
         suffix = paste0("_", suffix)
       }
-      new_file = paste0(prefix, file_noext, suffix, ".", file_ext)
-      new_path = file.path(dir_part, new_file)
+      if (nchar(file_ext) == 0) {
+        new_file = paste0(prefix, file_noext, suffix)
+      } else {
+        new_file = paste0(prefix, file_noext, suffix, ".", file_ext)
+      }
+      new_path = fs::path(dir_part, new_file)
       cli::cli_alert_info("Copying {.file {in_file}} to {.file {new_path}}.")
-      fs::file_copy(in_file, new_path, overwrite = overwrite)
+      file_info = fs::file_info(in_file)
+      if (file_info$type %in% "file") {
+        fs::file_copy(in_file, new_path, overwrite = overwrite)
+      } else if (file_info$type %in% "directory") {
+        fs::dir_copy(in_file, new_path, overwrite = TRUE)
+      } else {
+        cli::cli_alert_warning(
+          "{.file {in_file}} is not a file or directory, skipping!"
+        )
+      }
     } else {
-      cli::cli_alert_warning("{.file {in_file} does not exist.")
+      cli::cli_alert_warning("{.file {in_file}} does not exist.")
     }
   })
   return(invisible(out_files))
