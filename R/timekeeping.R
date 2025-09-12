@@ -65,7 +65,7 @@ ft_tk_logtask = function(
   category = "",
   type = "start",
   comments = "",
-  log_file = ft_tk_file()
+  log_file = ft_tk_logfile()
 ) {
   tk_categories = ft_tk_get_categories()
 
