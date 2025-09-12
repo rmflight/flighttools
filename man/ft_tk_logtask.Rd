@@ -24,7 +24,7 @@ ft_tk_logtask(
 
 \item{comments}{futher comments about it}
 
-\item{log_file}{where to put this info. Defaults to file returned by \code{ft_tk_file()}}
+\item{log_file}{where to put this info. Defaults to file returned by \code{ft_tk_logfile()}}
 }
 \description{
 log starting or stopping a task
@@ -34,6 +34,7 @@ Other {Timekeeping}:
 \code{\link{ft_setup_timekeeping}()},
 \code{\link{ft_tk_get_categories}()},
 \code{\link{ft_tk_logfile}()},
+\code{\link{ft_tk_parselog}()},
 \code{\link{ft_tk_removelast}()}
 }
 \concept{{Timekeeping}}

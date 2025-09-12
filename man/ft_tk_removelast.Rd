@@ -4,7 +4,7 @@
 \alias{ft_tk_removelast}
 \title{remove last timekeeping entry}
 \usage{
-ft_tk_removelast(log_file = ft_tk_file())
+ft_tk_removelast(log_file = ft_tk_logfile())
 }
 \arguments{
 \item{log_file}{}
@@ -20,6 +20,7 @@ Other {Timekeeping}:
 \code{\link{ft_setup_timekeeping}()},
 \code{\link{ft_tk_get_categories}()},
 \code{\link{ft_tk_logfile}()},
-\code{\link{ft_tk_logtask}()}
+\code{\link{ft_tk_logtask}()},
+\code{\link{ft_tk_parselog}()}
 }
 \concept{{Timekeeping}}

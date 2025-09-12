@@ -107,6 +107,14 @@ ft_tk_logtask = function(
   return(invisible(log_string))
 }
 
+
+#' Parse timekeeping log-file
+#'
+#' @param log_file
+#'
+#' @returns tibble of the log-file contents
+#' @family {Timekeeping}
+#' @export
 ft_tk_parselog = function(log_file = ft_tk_logfile()) {
   log_table = read.csv(log_file, header = FALSE) |>
     tibble::as_tibble()
