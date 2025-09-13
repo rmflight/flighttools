@@ -10,7 +10,7 @@ ft_tk_logtask(
   category = "",
   type = "start",
   comments = "",
-  log_file = ft_tk_file()
+  log_file = ft_tk_logfile()
 )
 }
 \arguments{
@@ -32,9 +32,11 @@ log starting or stopping a task
 \seealso{
 Other {Timekeeping}: 
 \code{\link{ft_setup_timekeeping}()},
+\code{\link{ft_tk_check_log}()},
 \code{\link{ft_tk_get_categories}()},
 \code{\link{ft_tk_logfile}()},
 \code{\link{ft_tk_parselog}()},
-\code{\link{ft_tk_removelast}()}
+\code{\link{ft_tk_removelast}()},
+\code{\link{ft_tk_summarize_time}()}
 }
 \concept{{Timekeeping}}

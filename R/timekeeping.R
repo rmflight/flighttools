@@ -77,12 +77,12 @@ ft_tk_logtask = function(
 
   if (!(category %in% tk_categories)) {
     cli::cli_abort(
-      "{.var category} is not in the list returned by {.function ft_tk_get_categories}."
+      "{.var {category}} is not in the list returned by {.fun ft_tk_get_categories}."
     )
   }
 
   if (!(type %in% c("start", "stop"))) {
-    cli::cli_abort("{.var type} must by either 'start' or 'stop'.")
+    cli::cli_abort("{.var type} must be either 'start' or 'stop'.")
   }
 
   log_string = paste(
@@ -145,9 +145,66 @@ ft_check_last = function(log_file, new_type = "") {
   }
 }
 
-ft_tk_check_log = function(log_table) {
+
+#' check a timekeeping log
+#'
+#' @param log_file the log file to check
+#'
+#' @returns NULL (invisibly)
+#' @family {Timekeeping}
+#' @export
+ft_tk_check_log = function(log_file = ft_tk_logfile()) {
   # for each collaborator and project, we should check that
   # stops immediately follow starts, and that there is an equal number of both.
+
+  tk_contents = ft_tk_parselog(log_file)
+
+  tk_grouped = tk_contents |>
+    dplyr::group_by(collab, project) |>
+    dplyr::summarise(
+      n_start = sum(type %in% "start"),
+      n_stop = sum(type %in% "stop")
+    )
+
+  tk_oddout = tk_grouped |>
+    dplyr::filter(n_start != n_stop)
+
+  if (nrow(tk_oddout) > 0) {
+    for (irow in seq_len(nrow(tk_oddout))) {
+      out_message = paste0(
+        "collab: ",
+        tk_oddout$collab[irow],
+        "; project: ",
+        tk_oddout$project[irow],
+        " has an odd number of `start` and `stop` entries."
+      )
+      cli::cli_warn(out_message)
+    }
+  }
+
+  start_locs = which(tk_contents$type %in% "start")
+  stop_locs = which(tk_contents$type %in% "stop")
+
+  n_start = length(start_locs)
+  n_stop = length(stop_locs)
+
+  if (n_start == n_stop) {
+    diff_start_stop = stop_locs - start_locs
+
+    diff_g1 = which(diff_start_stop > 1)
+
+    if (length(diff_g1) > 0) {
+      for (idiff in seq_len(length(diff_g1))) {
+        out_message = paste0(
+          "There is difference in start and stop entries greater than 1 near entry ",
+          diff_g1[idiff],
+          "."
+        )
+        cli::cli_warn(out_message)
+      }
+    }
+  }
+  return(invisible(NULL))
 }
 
 
@@ -169,13 +226,76 @@ ft_tk_removelast = function(log_file = ft_tk_logfile()) {
   return(invisible(NULL))
 }
 
+#' summarize working time
+#'
+#' @param log_file the log file to use (ft_tk_logfile)
+#' @param collab the collaborator to select
+#' @param project the project
+#' @param category the category of work
+#' @param units what to summarize to? Default is "days"
+#' @param min_cumulative minimum number of minutes to count as one "unit"
+#'
+#' @returns data.frame
+#' @family {Timekeeping}
+#' @export
 ft_tk_summarize_time = function(
   log_file = ft_tk_logfile(),
-  collab = "",
-  project = "",
-  category = "",
-  units = "days"
+  collab_q = "",
+  project_q = "",
+  category_q = "",
+  units = "days",
+  min_cumulative = "120"
 ) {
-  # this should get
-  return(NULL)
+  # this should sum time spent on a collaborator, project, and category basis,
+  # and if the time is greater than the minimum, then it counts as one of the "units".
+  # units are assumed to be minutes.
+  tk_contents = ft_tk_parselog(log_file)
+  use_collab = check_empty_string(collab_q)
+  use_project = check_empty_string(project_q)
+  use_category = check_empty_string(category_q)
+
+  if (use_collab & use_project & use_category) {
+    sum_contents = tk_contents |>
+      dplyr::filter(
+        collab %in% collab_q,
+        project %in% project_q,
+        category %in% category_q
+      )
+  } else if (use_collab & use_project & !use_category) {
+    sum_contents = tk_contents |>
+      dplyr::filter(collab %in% collab_q, project %in% project_q)
+  } else if (use_collab & !use_project & !use_category) {
+    sum_contents = tk_contents |>
+      dplyr::filter(collab %in% collab_q)
+  } else if (!use_collab & use_project & use_category) {
+    sum_contents = tk_contents |>
+      dplyr::filter(project %in% project_q, category %in% category_q)
+  }
+
+  if (!requireNamespace("lubridate", quietly = TRUE)) {
+    cli::cli_abort(
+      "package `lubridate` must be installed for adding up time entries."
+    )
+  }
+  start_locs = which(sum_contents$type %in% "start")
+  stop_locs = which(sum_contents$type %in% "stop")
+
+  time_df = tibble::tibble(
+    start = lubridate::ymd_hms(sum_contents$timestamp[start_locs]),
+    stop = lubridate::ymd_hms(sum_contents$timestamp[stop_locs])
+  )
+  time_df = time_df |>
+    dplyr::mutate(diff = stop - start, day = lubridate::date(start))
+
+  # group by day, and then sum time difference by day, and count each one greater than
+  # the limit as a "day"
+  return(sum_contents)
+}
+
+check_empty_string = function(in_string) {
+  if (nchar(in_string) > 0) {
+    return(TRUE)
+  } else {
+    return(FALSE)
+  }
 }

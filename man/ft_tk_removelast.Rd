@@ -18,9 +18,11 @@ remove last timekeeping entry
 \seealso{
 Other {Timekeeping}: 
 \code{\link{ft_setup_timekeeping}()},
+\code{\link{ft_tk_check_log}()},
 \code{\link{ft_tk_get_categories}()},
 \code{\link{ft_tk_logfile}()},
 \code{\link{ft_tk_logtask}()},
-\code{\link{ft_tk_parselog}()}
+\code{\link{ft_tk_parselog}()},
+\code{\link{ft_tk_summarize_time}()}
 }
 \concept{{Timekeeping}}
