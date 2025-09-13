@@ -194,14 +194,12 @@ ft_tk_check_log = function(log_file = ft_tk_logfile()) {
     diff_g1 = which(diff_start_stop > 1)
 
     if (length(diff_g1) > 0) {
-      for (idiff in seq_len(length(diff_g1))) {
-        out_message = paste0(
-          "There is difference in start and stop entries greater than 1 near entry ",
-          diff_g1[idiff],
-          "."
-        )
-        cli::cli_warn(out_message)
-      }
+      str_diffs = paste0(diff_g1, collapse = "\n")
+      full_message = paste0(
+        "There is a difference in start and stop entries greater than 1 near entry:\n",
+        str_diffs
+      )
+      cli::cli_warn(full_message)
     }
   }
   return(invisible(NULL))
@@ -234,6 +232,7 @@ ft_tk_removelast = function(log_file = ft_tk_logfile()) {
 #' @param category the category of work
 #' @param units what to summarize to? Default is "days"
 #' @param min_cumulative minimum number of minutes to count as one "unit"
+#' @param return_type whether to give the number of days, or specific time durations by day.
 #'
 #' @returns data.frame
 #' @family {Timekeeping}
@@ -244,7 +243,8 @@ ft_tk_summarize_time = function(
   project_q = "",
   category_q = "",
   units = "days",
-  min_cumulative = "120"
+  min_cumulative = 120,
+  return_type = "n-days"
 ) {
   # this should sum time spent on a collaborator, project, and category basis,
   # and if the time is greater than the minimum, then it counts as one of the "units".
@@ -284,12 +284,22 @@ ft_tk_summarize_time = function(
     start = lubridate::ymd_hms(sum_contents$timestamp[start_locs]),
     stop = lubridate::ymd_hms(sum_contents$timestamp[stop_locs])
   )
-  time_df = time_df |>
-    dplyr::mutate(diff = stop - start, day = lubridate::date(start))
 
-  # group by day, and then sum time difference by day, and count each one greater than
-  # the limit as a "day"
-  return(sum_contents)
+  min_duration = lubridate::duration(min_cumulative, units = "minutes")
+
+  diff_df = time_df |>
+    dplyr::mutate(diff = stop - start, day = lubridate::date(start)) |>
+    dplyr::group_by(day) |>
+    dplyr::summarise(total = sum(diff))
+
+  if (return_type %in% "n-days") {
+    n_days = diff_df |>
+      dplyr::filter(total >= min_duration) |>
+      nrow()
+    return(n_days)
+  } else if (return_type %in% "full") {
+    return(diff_df)
+  }
 }
 
 check_empty_string = function(in_string) {
