@@ -10,7 +10,8 @@ ft_tk_summarize_time(
   project_q = "",
   category_q = "",
   units = "days",
-  min_cumulative = "120"
+  min_cumulative = 120,
+  return_type = "n-days"
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ ft_tk_summarize_time(
 \item{units}{what to summarize to? Default is "days"}
 
 \item{min_cumulative}{minimum number of minutes to count as one "unit"}
+
+\item{return_type}{whether to give the number of days, or specific time durations by day.}
 
 \item{collab}{the collaborator to select}
 

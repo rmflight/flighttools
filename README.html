@@ -669,7 +669,7 @@ bibliography: bibliography_file.json</code></pre>
 <p>Do you remember the code to turn axis labels 90 degrees in a
 <code>ggplot2</code> graph? Me neither. But this gives me the code to
 add to a plot.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">ft_rotate_axis_labels</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">ft_ggplot2_rotate_axis_labels</span>()</span></code></pre></div>
 <pre><code>## scale_x_discrete(guide = guide_axis(angle = 90))
 ## 
 ## theme(axis.text.x=element_text(angle = 90)
@@ -681,6 +681,33 @@ file outputs with the current date, so I can keep track of versions, as
 well as zip the Word figure directory up to share with others.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">ft_rename_outputs</span>(<span class="fu">tar_read</span>(file_output), <span class="at">prefix =</span> <span class="st">&quot;initials_info&quot;</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">ft_zip_directory</span>(<span class="st">&quot;docs/file_output/figure-docx&quot;</span>, <span class="st">&quot;docs/file_output_figures.zip&quot;</span>)</span></code></pre></div>
+<h2 id="timekeeping">Timekeeping</h2>
+<p>I work in an academic environment, and I do a lot of data analysis
+for collaborators. We really want to provide information on roughly how
+much time I spend on various tasks working with them, but I don’t want
+to manually track it. Therefore, I built a set of relatively simple time
+tracking functions into this package.</p>
+<p>The way it works, is you set up a file where the timekeeping is
+recorded via <strong>start</strong> and <strong>stop</strong>
+statements. The file path is defined in an environment variable. I set
+this in the top level <code>.Renviron</code>. See
+<code>ft_setup_timekeeping()</code>. You also set which categories of
+tasks you are allowed to record in another environment variable, so that
+you restrict yourself to what <strong>categories</strong> you are
+recording, because personally, I’ll keep changing them.</p>
+<p>Actual timekeeping log entries are comma separated, so don’t use
+comma’s in your <strong>comments</strong>, or anything else.</p>
+<p>The functions are:</p>
+<ul>
+<li><code>ft_setup_timekeeping()</code>: only run once to give you code
+for setting things up;</li>
+<li><code>ft_tk_logtask()</code>: log starting and stopping tasks;</li>
+<li><code>ft_tk_removelast()</code>: remove the last entry in case you
+messed up;</li>
+<li><code>ft_tk_summarize_time()</code>: summarize how many days you’ve
+worked on particular projects;</li>
+<li><code>ft_tk_parselog()</code>: parse and display the log file.</li>
+</ul>
 
 </body>
 </html>

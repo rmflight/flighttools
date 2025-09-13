@@ -20,14 +20,16 @@ ft_tk_logtask(
 
 \item{category}{what type of work is being done}
 
-\item{type}{are you starting or stopping work}
+\item{type}{are you starting or stopping work (\code{start} or \code{stop})}
 
 \item{comments}{futher comments about it}
 
 \item{log_file}{where to put this info. Defaults to file returned by \code{ft_tk_logfile()}}
 }
 \description{
-log starting or stopping a task
+Logs \strong{starting} and \strong{stopping} work on a tast to a CSV file set using the
+environment variable \code{R_FT_TK_LOGFILE}. Allowed \code{categories} are set as a comma
+delimited string in the environment variable \code{R_FT_TK_CATEGORIES}.
 }
 \seealso{
 Other {Timekeeping}: 

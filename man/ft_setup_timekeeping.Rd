@@ -12,6 +12,9 @@ text
 \description{
 setup timekeeping
 }
+\examples{
+ft_setup_timekeeping()
+}
 \seealso{
 Other {Timekeeping}: 
 \code{\link{ft_tk_check_log}()},

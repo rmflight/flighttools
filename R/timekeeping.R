@@ -15,6 +15,9 @@ ft_tk_get_categories = function() {
 #'
 #' @family {Timekeeping}
 #' @export
+#'
+#' @examples
+#' ft_setup_timekeeping()
 #' @return NULL
 ft_setup_timekeeping = function() {
   cat(
@@ -29,7 +32,7 @@ ft_setup_timekeeping = function() {
   fs::file_create('/path/to/timekeeping_dir/.timekeeping.csv'",
     sep = "\n"
   )
-  return(NULL)
+  return(invisible())
 }
 
 
@@ -48,10 +51,14 @@ ft_tk_logfile = function() {
 
 #' log starting or stopping a task
 #'
+#' Logs **starting** and **stopping** work on a tast to a CSV file set using the
+#' environment variable `R_FT_TK_LOGFILE`. Allowed `categories` are set as a comma
+#' delimited string in the environment variable `R_FT_TK_CATEGORIES`.
+#'
 #' @param collab collaborating party
 #' @param project the project being worked on
 #' @param category what type of work is being done
-#' @param type are you starting or stopping work
+#' @param type are you starting or stopping work (`start` or `stop`)
 #' @param comments futher comments about it
 #' @param log_file where to put this info. Defaults to file returned by `ft_tk_logfile()`
 #'

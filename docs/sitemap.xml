@@ -25,9 +25,17 @@
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_rename_code.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_rename_outputs.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_rotate_axis_labels.html</loc></url>
+<url><loc>https://rmflight.github.io/flighttools/reference/ft_setup_timekeeping.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_show_targets_progress.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_targets_options.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_title_block.html</loc></url>
+<url><loc>https://rmflight.github.io/flighttools/reference/ft_tk_check_log.html</loc></url>
+<url><loc>https://rmflight.github.io/flighttools/reference/ft_tk_get_categories.html</loc></url>
+<url><loc>https://rmflight.github.io/flighttools/reference/ft_tk_logfile.html</loc></url>
+<url><loc>https://rmflight.github.io/flighttools/reference/ft_tk_logtask.html</loc></url>
+<url><loc>https://rmflight.github.io/flighttools/reference/ft_tk_parselog.html</loc></url>
+<url><loc>https://rmflight.github.io/flighttools/reference/ft_tk_removelast.html</loc></url>
+<url><loc>https://rmflight.github.io/flighttools/reference/ft_tk_summarize_time.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_upset_add_counts.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_upset_comb_matrix.html</loc></url>
 <url><loc>https://rmflight.github.io/flighttools/reference/ft_zip_directory.html</loc></url>
