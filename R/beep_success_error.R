@@ -41,7 +41,7 @@ ft_beep_success_error = function(expr, success = 4, error = 2) {
     beepr::beep(sound = error)
   } else {
     beepr::beep(sound = success)
-    return(tmp)
+    return(invisible(tmp))
   }
 }
 
@@ -63,7 +63,7 @@ ft_ntfy_success_error = function(
     ntfy::ntfy_send(error)
   } else {
     ntfy::ntfy_send(success)
-    return(tmp)
+    return(invisible(tmp))
   }
 }
 
@@ -102,5 +102,5 @@ ft_notify_success_error = function(
 
   args = c("-i", image, title, notify_message)
   processx::run(ns, args)
-  return(tmp)
+  return(invisible(tmp))
 }
