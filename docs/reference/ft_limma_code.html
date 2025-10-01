@@ -55,6 +55,58 @@ set up the differences one wants to extract.</p>
     <p>NULL, invisibly</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">ft_limma_code</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' run limma</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #'</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' Run limma code between two levels or factors.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #'</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' @param data_in a matrix of values, columns are samples</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' @param data_info data.frame of attributes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' @param contrast the attribute, and factors</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #'</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' @examples</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' data_in = matrix(rnorm(200), nrow = 10, ncol = 20)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' rownames(data_in) = paste0("f", seq(1, 10))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' colnames(data_in) = paste0("s", seq(1, 20))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #'</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' data_info = data.frame(sample_id = paste0("s", seq(1, 20)), group = rep(c("g1", "g2"), each = 10))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' # g1 is the reference</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' contrast = c("group", "g2", "g1")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #'</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' run_limma(data_in, data_info, contrast)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' # g2 is the reference</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' contrast = c("group", "g1", "g2")  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> run_limma = function(data_in, data_info, contrast) {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   data_info[[contrast[1]]] = factor(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     data_info[[contrast[1]]],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     levels = contrast[c(2, 3)]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   design_matrix = model.matrix(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     as.formula(paste("~", contrast[1], sep = " ")),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     data = data_info</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ncol_design = ncol(design_matrix)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   colnames(design_matrix)[ncol_design] = contrast[1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   data_in = data_in[, data_info$sample_id]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   lm_fit = limma::lmFit(data_in, design_matrix)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   e_fit = limma::eBayes(lm_fit)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   results = limma::topTable(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     e_fit,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     coef = contrast[1],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     number = Inf,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     p.value = 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   results$feature_id = rownames(results)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   return(results)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 

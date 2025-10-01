@@ -13,4 +13,8 @@ NULL, invisibly
 A helper that provides a template for limma code to programmatically
 set up the differences one wants to extract.
 }
+\examples{
+ft_limma_code()
+
+}
 \concept{'Analysis'}
