@@ -25,11 +25,11 @@ ft_limma_code = function() {
 #\' colnames(data_in) = paste0("s", seq(1, 20))
 #\'
 #\' data_info = data.frame(sample_id = paste0("s", seq(1, 20)), group = rep(c("g1", "g2"), each = 10))
-#\' # g1 is the reference
+#\' # g2 is the reference
 #\' contrast = c("group", "g2", "g1")
 #\'
 #\' run_limma(data_in, data_info, contrast)
-#\' # g2 is the reference
+#\' # g1 is the reference
 #\' contrast = c("group", "g1", "g2")  
 run_limma = function(data_in, data_info, contrast) {
   data_info[[contrast[1]]] = factor(
@@ -44,7 +44,14 @@ run_limma = function(data_in, data_info, contrast) {
   ncol_design = ncol(design_matrix)
   colnames(design_matrix)[ncol_design] = contrast[1]
 
+  out_contrast = paste0(contrast[3], " / ", contrast[2])
+
   data_in = data_in[, data_info$sample_id]
+
+  # depending on your data type, you may need to add an extractor,
+  # log-transformation, imputation, or combinations of them prior
+  # to running the actual limma calculations below
+
   lm_fit = limma::lmFit(data_in, design_matrix)
   e_fit = limma::eBayes(lm_fit)
 
@@ -55,6 +62,7 @@ run_limma = function(data_in, data_info, contrast) {
     p.value = 1
   )
   results$feature_id = rownames(results)
+  results$contrast = out_contrast
   return(results)
 }
 '
