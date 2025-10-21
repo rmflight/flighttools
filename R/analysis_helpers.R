@@ -23,14 +23,18 @@ ft_limma_code = function() {
 #\' data_in = matrix(rnorm(200), nrow = 10, ncol = 20)
 #\' rownames(data_in) = paste0("f", seq(1, 10))
 #\' colnames(data_in) = paste0("s", seq(1, 20))
+#\' data_in[, 1:10] = data_in[, 1:10] + 2
 #\'
 #\' data_info = data.frame(sample_id = paste0("s", seq(1, 20)), group = rep(c("g1", "g2"), each = 10))
 #\' # g2 is the reference
+#\' # LFC should all be positive
 #\' contrast = c("group", "g2", "g1")
 #\'
 #\' run_limma(data_in, data_info, contrast)
 #\' # g1 is the reference
+#\' # LFC should all be negative
 #\' contrast = c("group", "g1", "g2")  
+#\' run_limma(data_in, data_info, contrast)
 run_limma = function(data_in, data_info, contrast) {
   data_info[[contrast[1]]] = factor(
     data_info[[contrast[1]]],

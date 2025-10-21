@@ -10,6 +10,7 @@
 #' data_in = matrix(rnorm(200), nrow = 10, ncol = 20)
 #' rownames(data_in) = paste0("f", seq(1, 10))
 #' colnames(data_in) = paste0("s", seq(1, 20))
+#' data_in[, 1:10] = data_in[, 1:10] + 2
 #'
 #' data_info = data.frame(sample_id = paste0("s", seq(1, 20)), group = rep(c("g1", "g2"), each = 10))
 #' # g2 is the reference

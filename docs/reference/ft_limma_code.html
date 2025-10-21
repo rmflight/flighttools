@@ -9,7 +9,7 @@ set up the differences one wants to extract."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">flighttools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.37</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.40</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,14 +70,18 @@ set up the differences one wants to extract.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> #' data_in = matrix(rnorm(200), nrow = 10, ncol = 20)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> #' rownames(data_in) = paste0("f", seq(1, 10))</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> #' colnames(data_in) = paste0("s", seq(1, 20))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' data_in[, 1:10] = data_in[, 1:10] + 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> #'</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> #' data_info = data.frame(sample_id = paste0("s", seq(1, 20)), group = rep(c("g1", "g2"), each = 10))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> #' # g1 is the reference</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' # g2 is the reference</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' # LFC should all be positive</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> #' contrast = c("group", "g2", "g1")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> #'</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> #' run_limma(data_in, data_info, contrast)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> #' # g2 is the reference</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' # g1 is the reference</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' # LFC should all be negative</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> #' contrast = c("group", "g1", "g2")  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> #' run_limma(data_in, data_info, contrast)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> run_limma = function(data_in, data_info, contrast) {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   data_info[[contrast[1]]] = factor(</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     data_info[[contrast[1]]],</span>
@@ -91,7 +95,14 @@ set up the differences one wants to extract.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ncol_design = ncol(design_matrix)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   colnames(design_matrix)[ncol_design] = contrast[1]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   out_contrast = paste0(contrast[3], " / ", contrast[2])</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   data_in = data_in[, data_info$sample_id]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   # depending on your data type, you may need to add an extractor,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   # log-transformation, imputation, or combinations of them prior</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   # to running the actual limma calculations below</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   lm_fit = limma::lmFit(data_in, design_matrix)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   e_fit = limma::eBayes(lm_fit)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -102,6 +113,7 @@ set up the differences one wants to extract.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     p.value = 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   )</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   results$feature_id = rownames(results)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   results$contrast = out_contrast</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   return(results)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
 <span class="r-in"><span></span></span>
