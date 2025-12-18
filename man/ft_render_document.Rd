@@ -4,19 +4,12 @@
 \alias{ft_render_document}
 \title{rmarkdown render}
 \usage{
-ft_render_document(
-  document = NULL,
-  working_directory = getwd(),
-  format = "html_document",
-  ...
-)
+ft_render_document(document = NULL, working_directory = getwd(), ...)
 }
 \arguments{
 \item{document}{the \code{Rmd} document being used.}
 
 \item{working_directory}{the root directory of the \code{targets} project (default to getwd)}
-
-\item{format}{the output format to generate (default is html_document)}
 
 \item{...}{any other parameters used by \code{rmarkdown::render}}
 }
@@ -26,7 +19,8 @@ the output of running \code{rmarkdown::render}
 \description{
 A version of \code{rmarkdown::render} that has sane defaults for when working in a \code{targets} project
 where report documents are frequently kept in a subfolder, but \code{targets} needs to operate from
-the root folder to find and load everything.
+the root folder to find and load everything, \strong{and} is run within a separate \code{callr} process so
+all the outputs from the render are not in the local workspace.
 }
 \seealso{
 Other 'Document Rendering': 

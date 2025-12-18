@@ -4,19 +4,12 @@
 \alias{ft_quarto_document}
 \title{quarto render}
 \usage{
-ft_quarto_document(
-  document = NULL,
-  working_directory = getwd(),
-  format = "html",
-  ...
-)
+ft_quarto_document(document = NULL, working_directory = getwd(), ...)
 }
 \arguments{
 \item{document}{the \code{qmd} document being used}
 
 \item{working_directory}{the root directory of the \code{targets} project (default to getwd)}
-
-\item{format}{the output format to generate (default is html)}
 
 \item{...}{any other parameters used by \code{quarto::quarto_render}}
 }
