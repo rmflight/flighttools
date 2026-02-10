@@ -12,7 +12,7 @@
 #' @export
 #' @family 'Document Rendering'
 #' @return the output of running `rmarkdown::render`
-ft_render_document = function(
+ft_rmarkdown_render = function(
   document = NULL,
   working_directory = getwd(),
   ...
@@ -54,7 +54,7 @@ ft_render_document = function(
 #' @export
 #' @family 'Document Rendering'
 #' @return the output of running `quarto::quarto_render`
-ft_quarto_document = function(
+ft_quarto_render = function(
   document = NULL,
   working_directory = getwd(),
   ...
@@ -66,7 +66,6 @@ ft_quarto_document = function(
   }
   quarto::quarto_render(
     input = document,
-    output_format = format,
     execute_dir = working_directory,
     ...
   )
