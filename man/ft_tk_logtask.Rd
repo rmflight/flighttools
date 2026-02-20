@@ -10,7 +10,8 @@ ft_tk_logtask(
   category = "",
   type = "start",
   comments = "",
-  log_file = ft_tk_logfile()
+  log_file = ft_tk_logfile(),
+  time = Sys.time()
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ ft_tk_logtask(
 \item{comments}{futher comments about it}
 
 \item{log_file}{where to put this info. Defaults to file returned by \code{ft_tk_logfile()}}
+
+\item{time}{what time did this occur? Defaults to current time returned by \code{Sys.time()}}
 }
 \description{
 Logs \strong{starting} and \strong{stopping} work on a tast to a CSV file set using the

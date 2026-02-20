@@ -61,6 +61,7 @@ ft_tk_logfile = function() {
 #' @param type are you starting or stopping work (`start` or `stop`)
 #' @param comments futher comments about it
 #' @param log_file where to put this info. Defaults to file returned by `ft_tk_logfile()`
+#' @param time what time did this occur? Defaults to current time returned by `Sys.time()`
 #'
 #' @family {Timekeeping}
 #' @returns NULL
@@ -72,7 +73,8 @@ ft_tk_logtask = function(
   category = "",
   type = "start",
   comments = "",
-  log_file = ft_tk_logfile()
+  log_file = ft_tk_logfile(),
+  time = Sys.time()
 ) {
   tk_categories = ft_tk_get_categories()
 
@@ -98,7 +100,7 @@ ft_tk_logtask = function(
     category,
     type,
     comments,
-    Sys.time(),
+    time,
     sep = ","
   )
   cli::cli_inform(paste0('logging: ', log_string))
