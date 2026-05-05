@@ -333,7 +333,7 @@ ft_add_padding = function() {
 ft_upset_add_counts = function() {
   cat(
     'UpSet(combinations, top_annotation = upset_top_annotation(combinations, add_numbers = TRUE),
-  right_annotation = upset_right_annotation(mismatch_stable_comb, add_numbers = TRUE))'
+  right_annotation = upset_right_annotation(combinations, add_numbers = TRUE))'
   )
 }
 

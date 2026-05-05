@@ -73,3 +73,58 @@ run_limma = function(data_in, data_info, contrast) {
   )
   return(invisible(NULL))
 }
+
+#' Set function parameters to an environment.
+#'
+#' This function is designed to help debug functions. It will attempt to set all
+#' the default parameter values to the specified environment (global environment
+#' by default). This is useful for when you want to execute code within the
+#' function definition interactively but need the parameters set in the current
+#' environment.
+#'
+#' **Warning:** This function will modify the global environment and therefore
+#' violates CRAN policy
+#' ["Packages should not modify the global environment (user’s workspace)"]
+#' (https://cran.r-project.org/web/packages/policies.html#Source-packages).
+#'
+#' @param FUN the function to assign parameters to an environment.
+#' @param envir the environment to assign the variables to. Defaults to the
+#'        global environment.
+#' @param verbose whether to return the data frame invisibly or to print the results.
+#' @return a data frame where row names correspond to the parameter name with
+#'        two columns: `set` which is logical indicating if the variable was set
+#'        and `value` with a character representation of the variable value.
+#' @author Jason Bryer
+#' @source Jason Bryer blog, https://bryer.org/posts/2026-05-05-Setting_Function_Parameters_for_Debugging.html
+#' @family 'Analysis'
+#' @export
+ft_set_function_params = function(
+  FUN,
+  envir = globalenv(),
+  verbose = interactive()
+) {
+  params = formals(FUN)
+  params_set = data.frame(
+    row.names = names(params),
+    set = rep(FALSE, length(params)),
+    value = rep(NA_character_, length(params))
+  )
+  for (param in names(params)) {
+    value = params[[param]]
+    if (!missing(value)) {
+      if (is.character(value)) {
+        assign(param, value, envir = envir)
+        params_set[param, ]$value = paste0(value, collapse = ",")
+      } else {
+        assign(param, eval(value), envir = envir)
+        params_set[param, ]$value = paste0(eval(value), collapse = ",")
+      }
+      params_set[param, ]$set = TRUE
+    }
+  }
+  if (verbose) {
+    return(params_set)
+  } else {
+    invisible(params_set)
+  }
+}

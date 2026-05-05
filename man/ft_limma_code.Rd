@@ -17,4 +17,8 @@ set up the differences one wants to extract.
 ft_limma_code()
 
 }
+\seealso{
+Other 'Analysis': 
+\code{\link{ft_set_function_params}()}
+}
 \concept{'Analysis'}
