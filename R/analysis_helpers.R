@@ -84,8 +84,7 @@ run_limma = function(data_in, data_info, contrast) {
 #'
 #' **Warning:** This function will modify the global environment and therefore
 #' violates CRAN policy
-#' ["Packages should not modify the global environment (user’s workspace)"]
-#' (https://cran.r-project.org/web/packages/policies.html#Source-packages).
+#' ["Packages should not modify the global environment"](https://cran.r-project.org/web/packages/policies.html#Source-packages).
 #'
 #' @param FUN the function to assign parameters to an environment.
 #' @param envir the environment to assign the variables to. Defaults to the

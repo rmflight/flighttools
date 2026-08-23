@@ -41,9 +41,8 @@ columns: `set` which is logical indicating if the variable was set and
 ## Details
 
 **Warning:** This function will modify the global environment and
-therefore violates CRAN policy "Packages should not modify the global
-environment (user’s workspace)"
-(https://cran.r-project.org/web/packages/policies.html#Source-packages).
+therefore violates CRAN policy ["Packages should not modify the global
+environment"](https://cran.r-project.org/web/packages/policies.html#Source-packages).
 
 ## See also
 

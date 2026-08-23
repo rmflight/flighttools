@@ -32,8 +32,7 @@ environment.
 \details{
 \strong{Warning:} This function will modify the global environment and therefore
 violates CRAN policy
-\link{"Packages should not modify the global environment (user’s workspace)"}
-(https://cran.r-project.org/web/packages/policies.html#Source-packages).
+\href{https://cran.r-project.org/web/packages/policies.html#Source-packages}{"Packages should not modify the global environment"}.
 }
 \seealso{
 Other 'Analysis':
