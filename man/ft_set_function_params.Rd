@@ -36,8 +36,9 @@ violates CRAN policy
 (https://cran.r-project.org/web/packages/policies.html#Source-packages).
 }
 \seealso{
-Other 'Analysis': 
-\code{\link{ft_limma_code}()}
+Other 'Analysis':
+\code{\link[=ft_launch_watch_relaunch]{ft_launch_watch_relaunch()}},
+\code{\link[=ft_limma_code]{ft_limma_code()}}
 }
 \author{
 Jason Bryer

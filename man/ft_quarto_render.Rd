@@ -22,7 +22,7 @@ where report documents are frequently kept in a subfolder, but \code{targets} ne
 the root folder to find and load everything.
 }
 \seealso{
-Other 'Document Rendering': 
-\code{\link{ft_rmarkdown_render}()}
+Other 'Document Rendering':
+\code{\link[=ft_rmarkdown_render]{ft_rmarkdown_render()}}
 }
 \concept{'Document Rendering'}

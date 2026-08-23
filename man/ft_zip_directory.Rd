@@ -21,9 +21,9 @@ Given a file folder, creates a zip file containing all the underlying files, sta
 at the directory level.
 }
 \seealso{
-Other {File Manipulation}: 
-\code{\link{ft_add_figure_numbers}()},
-\code{\link{ft_rename_code}()},
-\code{\link{ft_rename_outputs}()}
+Other {File Manipulation}:
+\code{\link[=ft_add_figure_numbers]{ft_add_figure_numbers()}},
+\code{\link[=ft_rename_code]{ft_rename_code()}},
+\code{\link[=ft_rename_outputs]{ft_rename_outputs()}}
 }
 \concept{{File Manipulation}}

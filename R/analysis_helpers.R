@@ -128,3 +128,73 @@ ft_set_function_params = function(
     invisible(params_set)
   }
 }
+
+#' launch and relaunch a command
+#'
+#' Given a command string and arguments, runs it, checks if the process is still alive,
+#' and if the process has died, launches it again. Requires packages `sys` and `ps`.
+#'
+#' @param command the command to run
+#' @param args the command arguments
+#' @param ntry how many times to try relaunching the command
+#' @param check_interval how long to wait in seconds before checking on it
+#' @param status_expected what status is expected, default is "running"
+#' @param ... other arguments passed to `sys::exec_background`
+#'
+#' @seealso [sys::exec_background()], [ps::ps_status()]
+#' @export
+#' @family 'Analysis'
+#' @return NULL invisibly
+ft_launch_watch_relaunch = function(
+  command,
+  args = NULL,
+  ntry = 10,
+  check_interval = 60,
+  status_expected = "running",
+  ...
+) {
+  if (!requireNamespace("ps", quietly = TRUE)) {
+    cli::cli_abort(
+      "package `ps` must be installed for watching launched jobs."
+    )
+  }
+  if (!requireNamespace("sys", quietly = TRUE)) {
+    cli::cli_abort(
+      "package `sys` must be installed for launching background jobs."
+    )
+  }
+  itry = 1
+  while (itry <= ntry) {
+    cli::cli_inform("Running command iteration {itry} of {ntry} ...")
+
+    command_pid = sys::exec_background(cmd = command, args = args, ...)
+    ps_id = ps::ps_handle(command_pid)
+    # cli::cli_inform("pid is {command_pid}")
+
+    # cli::cli_inform("Sleeping ...")
+    Sys.sleep(check_interval)
+
+    status_str = fs::path("/proc", command_pid)
+    pid_status = ps::ps_status(ps_id)
+
+    if (!pid_status %in% status_expected) {
+      # cli::cli_inform("pid not found, iterating ...")
+      itry = itry + 1
+    }
+
+    while (pid_status %in% status_expected) {
+      # cli::cli_inform("Sleeping inner ...")
+      Sys.sleep(check_interval)
+      pid_status = ps::ps_status(ps_id)
+      # cli::cli_inform("pid status is {pid_status}")
+
+      if (!pid_status %in% status_expected) {
+        # cli::cli_inform("pid not found, iterating inner ...")
+        ps::ps_kill(ps_id)
+        itry = itry + 1
+        break()
+      }
+    }
+  }
+  return(invisible(NULL))
+}

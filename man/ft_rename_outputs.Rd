@@ -33,9 +33,9 @@ To rename actual targets, pass the output of \code{tar_read(target_name)}. Note 
 this function will not copy and rename \code{qmd} and \code{rmd} source files.
 }
 \seealso{
-Other {File Manipulation}: 
-\code{\link{ft_add_figure_numbers}()},
-\code{\link{ft_rename_code}()},
-\code{\link{ft_zip_directory}()}
+Other {File Manipulation}:
+\code{\link[=ft_add_figure_numbers]{ft_add_figure_numbers()}},
+\code{\link[=ft_rename_code]{ft_rename_code()}},
+\code{\link[=ft_zip_directory]{ft_zip_directory()}}
 }
 \concept{{File Manipulation}}

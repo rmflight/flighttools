@@ -36,13 +36,13 @@ data.frame
 summarize working time
 }
 \seealso{
-Other {Timekeeping}: 
-\code{\link{ft_setup_timekeeping}()},
-\code{\link{ft_tk_check_log}()},
-\code{\link{ft_tk_get_categories}()},
-\code{\link{ft_tk_logfile}()},
-\code{\link{ft_tk_logtask}()},
-\code{\link{ft_tk_parselog}()},
-\code{\link{ft_tk_removelast}()}
+Other {Timekeeping}:
+\code{\link[=ft_setup_timekeeping]{ft_setup_timekeeping()}},
+\code{\link[=ft_tk_check_log]{ft_tk_check_log()}},
+\code{\link[=ft_tk_get_categories]{ft_tk_get_categories()}},
+\code{\link[=ft_tk_logfile]{ft_tk_logfile()}},
+\code{\link[=ft_tk_logtask]{ft_tk_logtask()}},
+\code{\link[=ft_tk_parselog]{ft_tk_parselog()}},
+\code{\link[=ft_tk_removelast]{ft_tk_removelast()}}
 }
 \concept{{Timekeeping}}

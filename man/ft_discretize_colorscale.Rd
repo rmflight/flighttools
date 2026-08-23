@@ -34,21 +34,21 @@ if (require("scico")) {
 
 }
 \seealso{
-Other {Graphics}: 
-\code{\link{ft_add_figure_numbers}()},
-\code{\link{ft_add_padding}()},
-\code{\link{ft_ggplot2_add_ellipse}()},
-\code{\link{ft_ggplot2_colors}()},
-\code{\link{ft_ggplot2_legend_inside}()},
-\code{\link{ft_ggplot2_rotate_axis_labels}()},
-\code{\link{ft_ggplot2_self_colors}()},
-\code{\link{ft_plot_temp_file}()},
-\code{\link{ft_upset_add_counts}()},
-\code{\link{ft_upset_comb_matrix}()}
+Other {Graphics}:
+\code{\link[=ft_add_figure_numbers]{ft_add_figure_numbers()}},
+\code{\link[=ft_add_padding]{ft_add_padding()}},
+\code{\link[=ft_ggplot2_add_ellipse]{ft_ggplot2_add_ellipse()}},
+\code{\link[=ft_ggplot2_colors]{ft_ggplot2_colors()}},
+\code{\link[=ft_ggplot2_legend_inside]{ft_ggplot2_legend_inside()}},
+\code{\link[=ft_ggplot2_rotate_axis_labels]{ft_ggplot2_rotate_axis_labels()}},
+\code{\link[=ft_ggplot2_self_colors]{ft_ggplot2_self_colors()}},
+\code{\link[=ft_plot_temp_file]{ft_plot_temp_file()}},
+\code{\link[=ft_upset_add_counts]{ft_upset_add_counts()}},
+\code{\link[=ft_upset_comb_matrix]{ft_upset_comb_matrix()}}
 
-Other {Colors}: 
-\code{\link{ft_complexheatmap_scale}()},
-\code{\link{ft_ggplot2_colors}()}
+Other {Colors}:
+\code{\link[=ft_complexheatmap_scale]{ft_complexheatmap_scale()}},
+\code{\link[=ft_ggplot2_colors]{ft_ggplot2_colors()}}
 }
 \concept{{Colors}}
 \concept{{Graphics}}

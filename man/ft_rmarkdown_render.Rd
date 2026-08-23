@@ -23,7 +23,7 @@ the root folder to find and load everything, \strong{and} is run within a separa
 all the outputs from the render are not in the local workspace.
 }
 \seealso{
-Other 'Document Rendering': 
-\code{\link{ft_quarto_render}()}
+Other 'Document Rendering':
+\code{\link[=ft_quarto_render]{ft_quarto_render()}}
 }
 \concept{'Document Rendering'}

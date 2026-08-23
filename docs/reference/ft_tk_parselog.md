@@ -1,0 +1,30 @@
+# Parse timekeeping log-file
+
+Parse timekeeping log-file
+
+## Usage
+
+``` r
+ft_tk_parselog(log_file = ft_tk_logfile())
+```
+
+## Arguments
+
+- log_file:
+
+  the logfile to use. default is `ft_tk_logfile`
+
+## Value
+
+tibble of the log-file contents
+
+## See also
+
+Other Timekeeping:
+[`ft_setup_timekeeping()`](https://rmflight.github.io/flighttools/reference/ft_setup_timekeeping.md),
+[`ft_tk_check_log()`](https://rmflight.github.io/flighttools/reference/ft_tk_check_log.md),
+[`ft_tk_get_categories()`](https://rmflight.github.io/flighttools/reference/ft_tk_get_categories.md),
+[`ft_tk_logfile()`](https://rmflight.github.io/flighttools/reference/ft_tk_logfile.md),
+[`ft_tk_logtask()`](https://rmflight.github.io/flighttools/reference/ft_tk_logtask.md),
+[`ft_tk_removelast()`](https://rmflight.github.io/flighttools/reference/ft_tk_removelast.md),
+[`ft_tk_summarize_time()`](https://rmflight.github.io/flighttools/reference/ft_tk_summarize_time.md)

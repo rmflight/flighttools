@@ -18,7 +18,7 @@ for the \code{categories} field, counts how many of each category there are and 
 them in decreasing order as a {tibble}.
 }
 \seealso{
-Other {Quarto}: 
-\code{\link{ft_quarto_create_post}()}
+Other {Quarto}:
+\code{\link[=ft_quarto_create_post]{ft_quarto_create_post()}}
 }
 \concept{{Quarto}}

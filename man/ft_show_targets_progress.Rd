@@ -16,7 +16,7 @@ tibble
 show targets progress
 }
 \seealso{
-Other {targets}: 
-\code{\link{ft_targets_options}()}
+Other {targets}:
+\code{\link[=ft_targets_options]{ft_targets_options()}}
 }
 \concept{{targets}}

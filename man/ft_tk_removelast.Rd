@@ -7,7 +7,7 @@
 ft_tk_removelast(log_file = ft_tk_logfile())
 }
 \arguments{
-\item{log_file}{}
+\item{log_file}{the log file to remove from. default is \code{ft_tk_logfile}}
 }
 \value{
 NULL invisibly
@@ -16,13 +16,13 @@ NULL invisibly
 remove last timekeeping entry
 }
 \seealso{
-Other {Timekeeping}: 
-\code{\link{ft_setup_timekeeping}()},
-\code{\link{ft_tk_check_log}()},
-\code{\link{ft_tk_get_categories}()},
-\code{\link{ft_tk_logfile}()},
-\code{\link{ft_tk_logtask}()},
-\code{\link{ft_tk_parselog}()},
-\code{\link{ft_tk_summarize_time}()}
+Other {Timekeeping}:
+\code{\link[=ft_setup_timekeeping]{ft_setup_timekeeping()}},
+\code{\link[=ft_tk_check_log]{ft_tk_check_log()}},
+\code{\link[=ft_tk_get_categories]{ft_tk_get_categories()}},
+\code{\link[=ft_tk_logfile]{ft_tk_logfile()}},
+\code{\link[=ft_tk_logtask]{ft_tk_logtask()}},
+\code{\link[=ft_tk_parselog]{ft_tk_parselog()}},
+\code{\link[=ft_tk_summarize_time]{ft_tk_summarize_time()}}
 }
 \concept{{Timekeeping}}

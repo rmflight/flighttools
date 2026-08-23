@@ -13,7 +13,7 @@ text
 Provides a text snippet with useful targets progress options.
 }
 \seealso{
-Other {targets}: 
-\code{\link{ft_show_targets_progress}()}
+Other {targets}:
+\code{\link[=ft_show_targets_progress]{ft_show_targets_progress()}}
 }
 \concept{{targets}}

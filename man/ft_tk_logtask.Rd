@@ -35,13 +35,13 @@ environment variable \code{R_FT_TK_LOGFILE}. Allowed \code{categories} are set a
 delimited string in the environment variable \code{R_FT_TK_CATEGORIES}.
 }
 \seealso{
-Other {Timekeeping}: 
-\code{\link{ft_setup_timekeeping}()},
-\code{\link{ft_tk_check_log}()},
-\code{\link{ft_tk_get_categories}()},
-\code{\link{ft_tk_logfile}()},
-\code{\link{ft_tk_parselog}()},
-\code{\link{ft_tk_removelast}()},
-\code{\link{ft_tk_summarize_time}()}
+Other {Timekeeping}:
+\code{\link[=ft_setup_timekeeping]{ft_setup_timekeeping()}},
+\code{\link[=ft_tk_check_log]{ft_tk_check_log()}},
+\code{\link[=ft_tk_get_categories]{ft_tk_get_categories()}},
+\code{\link[=ft_tk_logfile]{ft_tk_logfile()}},
+\code{\link[=ft_tk_parselog]{ft_tk_parselog()}},
+\code{\link[=ft_tk_removelast]{ft_tk_removelast()}},
+\code{\link[=ft_tk_summarize_time]{ft_tk_summarize_time()}}
 }
 \concept{{Timekeeping}}

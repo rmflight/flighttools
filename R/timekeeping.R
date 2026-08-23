@@ -119,7 +119,7 @@ ft_tk_logtask = function(
 
 #' Parse timekeeping log-file
 #'
-#' @param log_file
+#' @param log_file the logfile to use. default is `ft_tk_logfile`
 #'
 #' @returns tibble of the log-file contents
 #' @family {Timekeeping}
@@ -217,7 +217,7 @@ ft_tk_check_log = function(log_file = ft_tk_logfile()) {
 
 #' remove last timekeeping entry
 #'
-#' @param log_file
+#' @param log_file the log file to remove from. default is `ft_tk_logfile`
 #'
 #' @returns NULL invisibly
 #' @family {Timekeeping}

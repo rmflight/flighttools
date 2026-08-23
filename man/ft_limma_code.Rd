@@ -18,7 +18,8 @@ ft_limma_code()
 
 }
 \seealso{
-Other 'Analysis': 
-\code{\link{ft_set_function_params}()}
+Other 'Analysis':
+\code{\link[=ft_launch_watch_relaunch]{ft_launch_watch_relaunch()}},
+\code{\link[=ft_set_function_params]{ft_set_function_params()}}
 }
 \concept{'Analysis'}
