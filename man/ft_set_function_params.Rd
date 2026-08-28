@@ -37,7 +37,8 @@ violates CRAN policy
 \seealso{
 Other 'Analysis':
 \code{\link[=ft_launch_watch_relaunch]{ft_launch_watch_relaunch()}},
-\code{\link[=ft_limma_code]{ft_limma_code()}}
+\code{\link[=ft_limma_code]{ft_limma_code()}},
+\code{\link[=ft_r_launch_watch_relaunch]{ft_r_launch_watch_relaunch()}}
 }
 \author{
 Jason Bryer
