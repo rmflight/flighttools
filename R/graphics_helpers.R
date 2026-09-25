@@ -363,3 +363,18 @@ ft_upset_comb_matrix = function() {
 }'
   )
 }
+
+#' change zero location
+#'
+#' Provides the code for modifying where the zero line will be shown in a ggplot2
+#' histogram.
+#'
+#' @family {Graphics}
+#' @family {Code Generators}
+#' @examples
+#'   ft_ggplot2_change_zero()
+#' @export
+#' @return a string
+ft_ggplot2_change_zero = function() {
+  cat('scale_x/y_continuous(expand = expansion(mult = c(0, NA)))', sep = "\n")
+}

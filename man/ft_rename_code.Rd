@@ -21,6 +21,7 @@ Other {Code Generators}:
 \code{\link[=ft_complexheatmap_scale]{ft_complexheatmap_scale()}},
 \code{\link[=ft_data_dictionary]{ft_data_dictionary()}},
 \code{\link[=ft_ggplot2_add_ellipse]{ft_ggplot2_add_ellipse()}},
+\code{\link[=ft_ggplot2_change_zero]{ft_ggplot2_change_zero()}},
 \code{\link[=ft_ggplot2_colors]{ft_ggplot2_colors()}},
 \code{\link[=ft_ggplot2_legend_inside]{ft_ggplot2_legend_inside()}},
 \code{\link[=ft_ggplot2_rotate_axis_labels]{ft_ggplot2_rotate_axis_labels()}},

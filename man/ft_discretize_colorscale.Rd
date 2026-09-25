@@ -38,6 +38,7 @@ Other {Graphics}:
 \code{\link[=ft_add_figure_numbers]{ft_add_figure_numbers()}},
 \code{\link[=ft_add_padding]{ft_add_padding()}},
 \code{\link[=ft_ggplot2_add_ellipse]{ft_ggplot2_add_ellipse()}},
+\code{\link[=ft_ggplot2_change_zero]{ft_ggplot2_change_zero()}},
 \code{\link[=ft_ggplot2_colors]{ft_ggplot2_colors()}},
 \code{\link[=ft_ggplot2_legend_inside]{ft_ggplot2_legend_inside()}},
 \code{\link[=ft_ggplot2_rotate_axis_labels]{ft_ggplot2_rotate_axis_labels()}},
