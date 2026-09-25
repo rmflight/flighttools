@@ -7,7 +7,7 @@
 ft_watch_pid(
   pid = NULL,
   dead_action = function() {
-     ft_notify_success_error("it died")
+     ft_notify_success_error(NULL, "it died")
  },
   alive_action = NULL,
   check_interval = 60

@@ -18,6 +18,7 @@ Other Code Generators:
 [`ft_add_padding()`](https://rmflight.github.io/flighttools/reference/ft_add_padding.md),
 [`ft_complexheatmap_scale()`](https://rmflight.github.io/flighttools/reference/ft_complexheatmap_scale.md),
 [`ft_ggplot2_add_ellipse()`](https://rmflight.github.io/flighttools/reference/ft_ggplot2_add_ellipse.md),
+[`ft_ggplot2_change_zero()`](https://rmflight.github.io/flighttools/reference/ft_ggplot2_change_zero.md),
 [`ft_ggplot2_colors()`](https://rmflight.github.io/flighttools/reference/ft_ggplot2_colors.md),
 [`ft_ggplot2_legend_inside()`](https://rmflight.github.io/flighttools/reference/ft_ggplot2_legend_inside.md),
 [`ft_ggplot2_rotate_axis_labels()`](https://rmflight.github.io/flighttools/reference/ft_ggplot2_rotate_axis_labels.md),

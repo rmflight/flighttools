@@ -11,13 +11,13 @@ Source:
 [`DESCRIPTION`](https://github.com/rmflight/flighttools/blob/HEAD/DESCRIPTION)
 
 Flight R (2026). *flighttools: Functions That Robert M Flight Finds
-Useful*. R package version 0.1.46,
+Useful*. R package version 0.1.48,
 <https://github.com/rmflight/flighttools>.
 
     @Manual{,
       title = {flighttools: Functions That Robert M Flight Finds Useful},
       author = {Robert Flight},
       year = {2026},
-      note = {R package version 0.1.46},
+      note = {R package version 0.1.48},
       url = {https://github.com/rmflight/flighttools},
     }

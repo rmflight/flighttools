@@ -17,6 +17,7 @@ NULL, invisibly
 
 Other 'Analysis':
 [`ft_launch_watch_relaunch()`](https://rmflight.github.io/flighttools/reference/ft_launch_watch_relaunch.md),
+[`ft_r_launch_watch_relaunch()`](https://rmflight.github.io/flighttools/reference/ft_r_launch_watch_relaunch.md),
 [`ft_set_function_params()`](https://rmflight.github.io/flighttools/reference/ft_set_function_params.md)
 
 ## Examples

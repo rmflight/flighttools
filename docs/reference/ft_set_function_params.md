@@ -48,7 +48,8 @@ environment"](https://cran.r-project.org/web/packages/policies.html#Source-packa
 
 Other 'Analysis':
 [`ft_launch_watch_relaunch()`](https://rmflight.github.io/flighttools/reference/ft_launch_watch_relaunch.md),
-[`ft_limma_code()`](https://rmflight.github.io/flighttools/reference/ft_limma_code.md)
+[`ft_limma_code()`](https://rmflight.github.io/flighttools/reference/ft_limma_code.md),
+[`ft_r_launch_watch_relaunch()`](https://rmflight.github.io/flighttools/reference/ft_r_launch_watch_relaunch.md)
 
 ## Author
 
